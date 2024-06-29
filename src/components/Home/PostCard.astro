@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+const { title, topic, color, image, linkTo } = Astro.props;
+---
+
+<div
+  class="h-full text-center w-64 flex flex-col gap-2 justify-center items-center p-8"
+>
+  <!-- Imagen redonda con un placeholder ocupando la mitad de la tarjeta vertical -->
+  <Image
+    src={image}
+    alt="Blog Image "
+    width="200"
+    height="200"
+    class="rounded-full h-36 w-36 mx-auto"
+  />
+  <p class="text-sm text-slate-400 font font-semibold">{topic}</p>
+  <p class="text-lg font-bold">{title}</p>
+  <a
+    href=`/${linkTo}`
+    class=`py-1.5 px-8 w-36 rounded-full text-white text-sm hover:shadow-lg hover:font-bold hover:scale-105 transition-transform duration-300 ease-in-out`
+    style=`background-color: ${color} ;`>Ver más...</a
+  >
+</div>

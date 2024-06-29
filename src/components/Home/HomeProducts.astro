@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import arepa from "../../assets/images/home/products/arepa.png";
+import queso from "../../assets/images/home/products/queso.png";
+import carnes from "../../assets/images/home/products/carnes.png";
+import dulces from "../../assets/images/home/products/dulces.png";
+import tarrina from "../../assets/images/home/products/tarrina.png";
+import MountainBGWhite from "../../components/Utilities/MountainBGWhite.astro";
+
+const prodcutsArray = [
+  {
+    image: arepa,
+    title: "Arepas",
+    path: "arepas",
+  },
+  {
+    image: queso,
+    title: "Quesos",
+    path: "quesos",
+  },
+  {
+    image: carnes,
+    title: "Carnes",
+    path: "carnes",
+  },
+  {
+    image: dulces,
+    title: "Dulces",
+    path: "dulces",
+  },
+  {
+    image: tarrina,
+    title: "Tarrinas",
+    path: "tarrinas",
+  },
+];
+---
+
+<section class="py-24 bg-[#f0f0f0] relative">
+  <div class="autoShow flex flex-col items-center justify-center my-16">
+    <h2 class="text-2xl">Utilizamos lo mejor del campo</h2>
+    <h3 class="text-4xl font-bold">en nuestros productos</h3>
+  </div>
+  <div
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-36"
+  >
+    {
+      prodcutsArray.map((product, index) => (
+        <div class="flex items-center justify-center autoShow">
+          <div class="group group-hover:shadow h-96 group-hover:border w-64 group-hover:rounded-2xl relative overflow-hidden transition-all duration-300 ease-in-out">
+            <div>
+              <Image
+                src={product.image}
+                alt="Arepa"
+                class="w-full max-h-full object-cover absolute z-10 p-5 bottom-[30%]"
+              />
+              <div class="p-4 bg-white absolute w-full h-1/2 group-hover:h-full group-hover:bg-blue-900 transition-all duration-300 ease-in-out rounded-2xl bottom-0 flex flex-col justify-end items-center pb-12">
+                <h3 class="text-2xl font-bold group-hover:text-white">
+                  {product.title}
+                </h3>
+                <a
+                  href={`/${product.path}`}
+                  class="border py-1 px-6 text-sm mt-2 rounded-full group-hover:border-white group-hover:text-white"
+                >
+                  Ver más
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <MountainBGWhite />
+</section>
+<!-- Agreegar estilo de animacion de entrada cuando el usuario haga scroll hasta esta seccion seccion  -->

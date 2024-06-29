@@ -1,0 +1,55 @@
+---
+import Navbar from "./Navbar.astro";
+---
+
+<footer
+  class="bg-[#F0F0F0] flex flex-col items-center justify-center text-center footer-style pt-1s0 2xl:pt-32 text-blue-950"
+>
+  <div class="grid grid-cols-1 lg:grid-cols-3 text-lg w-full max-w-screen-xl">
+    <div class="flex flex-col items-start gap-5">
+      <div>
+        <p class="text-left font-bold">Correo</p>
+        <a href="mailto:correo@talaveraselecta.com"
+          >correo@talaveraselecta.com</a
+        >
+      </div>
+      <div class="flex flex-col">
+        <p class="text-left font-bold">Teléfono</p>
+        <a href="tel:641318605">641 31 8605</a>
+        <a href="tel:663798559">663 79 85 59</a>
+        <a href="tel:686484645">686 48 46 45</a>
+      </div>
+    </div>
+    <div class="flex justify-center items-center">Logo</div>
+    <div class="text-left flex flex-col gap-5">
+      <div>
+        <p class="font-bold">Almacén</p>
+        <p class="">Avenida Isaac Newton 7,</p>
+        <p class="">Getafe – Madrid CP 28906</p>
+      </div>
+      <div>
+        <p class="font-bold">Fábrica</p>
+        <p class="">Calle Goicoechea 15, Plasencia.</p>
+        <p class="">Cáceres CP 10600. Extremadura</p>
+      </div>
+    </div>
+  </div>
+  <div><Navbar /></div>
+  <div>
+    <p class="powered">Copyright © 2024 Talavera Selecta - Powered by</p>
+  </div>
+</footer>
+
+<style>
+  .powered {
+    font-size: 0.8rem;
+    color: #666;
+    font-style: oblique;
+  }
+  .footer-style {
+    /* background-image: url("/images/bg-mountain.svg"); */
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+</style>

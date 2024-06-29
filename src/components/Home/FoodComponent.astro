@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import foodImage from "../../assets/images/home/food.png";
+import bgWave from "../../assets/images/home/carrusel/curve.svg";
+---
+
+<section class="min-h-96 w-full relative bg-lime-400 flex items-center">
+  <div class="absolute w-full top-0">
+    <Image
+      src={bgWave}
+      alt="Wave"
+      class="transform rotate-180 w-full object-cover -mt-1"
+    />
+  </div>
+  <div
+    class="absolute w-screen z-10 lg:w-1/2 right-0 flex flex-col items-center"
+  >
+    <div class="max-w-screen-sm flex flex-col items-center justify-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-center text-white">
+        Sabor & Tradición
+      </h1>
+      <p class="text-center md:text-xl text-white">
+        Sumérgete en un viaje lleno de sabores con <br /> nuestras recetas.
+      </p>
+      <a
+        href="#"
+        class="bg-green-950 hover:bg-opacity-45 py-1 max-w-max px-3 rounded-full text-white text-sm font-bold mt-4 inline-block bg-opacity-50"
+        >¡Ver todas las recetas!</a
+      >
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-lg-6">
+      <div class="relative -left-1/2 lg:left-0 z-0 -bottom-20 lg:bottom-0">
+        <Image src={foodImage} alt="Food Image " />
+      </div>
+    </div>
+  </div>
+  <div class="absolute w-full bottom-0">
+    <Image src={bgWave} alt="Wave" class="w-full object-cover -mb-1 -ml-1" />
+  </div>
+</section>

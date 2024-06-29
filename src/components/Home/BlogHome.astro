@@ -1,0 +1,44 @@
+---
+import PostCard from "./PostCard.astro";
+---
+
+<section class="bg-white flex flex-col items-center gap-8">
+  <div class="text-center max-w-screen-lg autoShow">
+    <h1 class="text-4xl md:text-5xl font-bold text-center">Nuestro Blog</h1>
+    <p class="text-center md:text-xl">
+      Descubre el sabor y la autenticidad de nuestra cocina a través de nuestro
+      blog, donde compartimos recetas, historias culinarias y más.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="w-full h-full flex items-center justify-center left-fadeIn">
+      <PostCard
+        title="Lorem ipsum dolor sit amet"
+        topic="Recetas"
+        color="#FFC62B"
+        image="https://infoshopcorp.com/wp-content/uploads/2020/11/placeholder.png"
+        linkTo="/"
+      />
+    </div>
+    <div
+      class="w-full h-full flex items-center justify-center smborder-x-2 autoShow"
+    >
+      <PostCard
+        title="Lorem ipsum dolor sit amet"
+        topic="Actualidad"
+        color="#272967"
+        image="https://infoshopcorp.com/wp-content/uploads/2020/11/placeholder.png"
+        linkTo="/"
+      />
+    </div>
+    <div class="w-full h-full flex items-center justify-center right-fadeIn">
+      <PostCard
+        title="Lorem ipsum dolor sit amet"
+        topic="Recetas"
+        color="#C00018"
+        image="https://infoshopcorp.com/wp-content/uploads/2020/11/placeholder.png"
+        linkTo="/"
+      />
+    </div>
+  </div>
+</section>

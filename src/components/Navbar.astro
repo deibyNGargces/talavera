@@ -1,0 +1,91 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button class="flex lg:hidden" id="toggle-menu">
+  <Icon name="Hamburger" class="w-6 h-6" />
+</button>
+<ul
+  class="hidden text-white font-bold lg:flex gap-6 bg-white lg:bg-transparent"
+>
+  <li>
+    <a
+      class="lg:hover:border-b-4 lg:hover:border-white px-2 py-2 cursor-pointer"
+      href="/">Home</a
+    >
+  </li>
+  <li>
+    <a
+      class="lg:hover:border-b-4 lg:hover:border-white px-2 py-2 cursor-pointer"
+      href="about">Conocenos</a
+    >
+  </li>
+  <li class="lg:hover:border-b-4 lg:hover:border-white pb-0 px-2 lg:pb-2 h-9">
+    <!-- dropdown menu here with the following links inside  lacteos, quesos, carnicos, embutidos-->
+    <div class="relative">
+      <p class="flex items-center gap-4" id="toggle-dropdown">
+        Nuestros productos <span>
+          <Icon name="ArrowDown" class="w-4 h-4" />
+        </span>
+      </p>
+      <ul
+        class="w-56 h-auto absolute mt-2 hidden rounded-lg overflow-hidden bg-slate-300"
+      >
+        <li class="w-full h-auto">
+          <a
+            class="lg:hover:border-b-4 lg:hover:border-white inline-block w-full px-2 py-2 cursor-pointer"
+            href="lacteos">Lácteos</a
+          >
+        </li>
+        <li class="w-full h-auto">
+          <a
+            class="lg:hover:border-b-4 lg:inline-block w-full hover:border-white px-2 py-2 cursor-pointer"
+            href="lacteos">Lácteos</a
+          >
+        </li>
+        <li class="w-full h-auto">
+          <a
+            class="lg:hover:border-b-4 lg:inline-block w-full hover:border-white px-2 py-2 cursor-pointer"
+            href="lacteos">Lácteos</a
+          >
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <a
+      class="lg:hover:border-b-4 lg:hover:border-white px-2 py-2 cursor-pointer"
+      href="yeguada">Yeguada Selecta</a
+    >
+  </li>
+  <li>
+    <a
+      class="lg:hover:border-b-4 lg:hover:border-white px-2 py-2 cursor-pointer"
+      href="blog">Blog</a
+    >
+  </li>
+  <li>
+    <a
+      class="lg:hover:border-b-4 lg:hover:border-white px-2 py-2 cursor-pointer"
+      href="distributors">Conviertete en distribuidor</a
+    >
+  </li>
+  <li>
+    <a
+      class="bg-white text-blue-900 py-1.5 px-3 rounded-2xl cursor-pointer hover:bg-blue-600 hover:text-white"
+      href="contact">Contactanos</a
+    >
+  </li>
+</ul>
+
+<script>
+  let toggleMenu = false;
+  document.getElementById("toggle-dropdown")?.addEventListener("click", () => {
+    document.querySelector(".absolute")?.classList.toggle("hidden");
+  });
+
+  document.getElementById("toggle-menu")?.addEventListener("click", () => {
+    document.querySelector("ul")?.classList.toggle("hidden");
+    toggleMenu = !toggleMenu;
+  });
+</script>

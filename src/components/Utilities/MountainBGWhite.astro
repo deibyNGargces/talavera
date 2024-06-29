@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import mountainGrey from "../../../public//images/bg-mountain.svg";
+---
+
+<div class="w-full h-36 overflow-hidden absolute bottom-0 bg-white">
+  <Image
+    src={mountainGrey}
+    alt="Astro Logo"
+    style={{
+      objectFit: "contain",
+      width: "100%",
+      position: "absolute",
+      bottom: "0",
+    }}
+  />
+</div>
+<!-- class="object-contain w-full object-bottom relative bottom-0" -->

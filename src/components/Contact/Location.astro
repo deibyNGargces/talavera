@@ -1,0 +1,35 @@
+---
+import Maps from "./Maps";
+---
+
+<div class="flex flex-col items-center py-8 bg-sky-500 z-30 gap-8">
+  <div>
+    <p class="text-center z-50 text-4xl text-white">
+      Puedes <span class="block font-bold">encontrarnos en...</span>
+    </p>
+  </div>
+  <div class="max-w-screen-xl w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div>
+      <Maps
+        urlMap="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.4282596331655!2d-3.6993470112131215!3d40.288449089861295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4221a858ee11e1%3A0x7f8b18a692d9ba3f!2sAv.%20Isaac%20Newton%2C%207%2C%2028906%20Getafe%2C%20Madrid%2C%20Espa%C3%B1a!5e0!3m2!1ses-419!2sco!4v1718756253499!5m2!1ses-419!2sco"
+      />
+
+      <div class="text-center text-white text-lg mt-3">
+        <p class="font-bold">Almacén</p>
+        <p>Avenida Isaac Newton 7,</p>
+        <p>Getafe – Madrid CP 28906</p>
+      </div>
+    </div>
+    <div>
+      <Maps
+        urlMap="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.3168953971003!2d-6.124047959425686!3d40.00136854264932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3e176d83c47597%3A0x24cec5c5ed9b6e00!2sC.%20Goicoechea%2C%2015%2C%2010600%20Plasencia%2C%20C%C3%A1ceres%2C%20Espa%C3%B1a!5e0!3m2!1ses-419!2sco!4v1718756349635!5m2!1ses-419!2sco"
+      />
+
+      <div class="text-center text-white text-lg mt-3">
+        <p class="font-bold">Fábrica</p>
+        <p>Calle Goicoechea 15, Plasencia.</p>
+        <p>Cáceres CP 10600. Extremadura</p>
+      </div>
+    </div>
+  </div>
+</div>

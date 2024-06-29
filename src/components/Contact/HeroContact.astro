@@ -1,0 +1,102 @@
+---
+import Image from "astro/components/Image.astro";
+import wave from "../../../public/images/contact/wave-haikei.svg";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="h-full hero-contact relative">
+  <h2 class="text-3xl lg:text-5xl font-light tracking-widest">
+    ¡TE ESCUCHAMOS!
+  </h2>
+  <h1 class="text-5xl lg:text-7xl font-extrabold">Contactanos</h1>
+  <Image src={wave} alt="Wave" class="w-full absolute bottom-0" />
+  <button
+    class="text-white flex gap-1 items-center bg-sky-500 py-2 px-5 rounded-tl-xl rounded-bl-xl absolute lg:fixed bottom-16 right-0 text-4xl z-50"
+  >
+    <Icon name="WhatsApp" />
+    <span class="text-lg leading-none">
+      Solicita más <br /> <span class="font-bold">información</span></span
+    >
+  </button>
+</div>
+
+<div class="flex py-16 flex-col justify-center items-center contact-cards">
+  <div class="flex flex-col p-4 gap-4 lg:flex-row max-w-screen-lg">
+    <h2 class="text-6xl font-extrabold w-full text-blue-900">
+      Conéctate <br /> con nostros
+    </h2>
+    <p class="text-lg lg:text-2xl">
+      ¡Estamos aquí para escucharte! Ponte en contacto con nuestro equipo para
+      resolver cualquier duda, consulta o sugerencia que tengas. <span
+        class="font-bold"
+      >
+        ¡Esperamos conocerte pronto!
+      </span>
+    </p>
+  </div>
+  <div
+    class="w-full max-w-screen-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-8 lg:px-0 py-8 lg:py-16"
+  >
+    <div
+      class="bg-blue-900 p-8 flex flex-col items-center justify-start text-white"
+    >
+      <Icon name="Email" class="text-6xl" />
+      <p class="font-bold">Correo</p>
+      <a href="mailto:correo@talaveraselecta.com">correo@talaveraselecta.com</a>
+    </div>
+    <div
+      class="bg-blue-900 p-8 flex flex-col items-center justify-start text-white"
+    >
+      <Icon name="Phone" class="text-6xl" />
+      <p class="font-bold">Teléfono</p>
+      <a href="tel:641318605">641 31 8605</a>
+      <a href="tel:663798559">663 79 85 59</a>
+      <a href="tel:686484645">686 48 46 45</a>
+    </div>
+    <div
+      class="bg-blue-900 p-8 flex flex-col items-center justify-start text-white"
+    >
+      <Icon name="Locate" class="text-6xl" />
+      <p class="font-bold">Almacén</p>
+      <p class="text-center">
+        Avenida Isaac Newton 7, Getafe – Madrid CP 28906
+      </p>
+    </div>
+    <div
+      class="bg-blue-900 p-8 flex flex-col items-center justify-start text-white"
+    >
+      <Icon name="Locate" class="text-6xl" />
+      <p class="font-bold">Fábrica</p>
+      <p class="text-center">
+        Calle Goicoechea 15, Plasencia. Cáceres CP 10600. Extremadura
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-contact {
+    background: linear-gradient(
+      180deg,
+      rgb(9, 63, 241),
+      rgba(255, 255, 255, 0.5)
+    );
+    background: url("../../../public/images/contact/herocontact.png");
+    background-size: cover;
+    background-position: bottom center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background-blend-mode: multiply;
+  }
+
+  .contact-cards {
+    background-image: url("../../../public/images/contact/fondo.svg");
+    background-size: cover;
+    background-position: center bottom;
+  }
+</style>

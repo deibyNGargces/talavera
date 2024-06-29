@@ -1,0 +1,12 @@
+---
+import Navbar from "./Navbar.astro";
+import whiteLogo from "../assets/images/whiteLogo.svg";
+import { Image } from "astro:assets";
+---
+
+<nav class="py-4 shadow-sm fixed z-[1000] w-full flex justify-between px-10">
+  <a href="/" class="flex items-center justify-center">
+    <Image src={whiteLogo} alt="Logo" class="w-16 h-16" />
+  </a>
+  <Navbar />
+</nav>

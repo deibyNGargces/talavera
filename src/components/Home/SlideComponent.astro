@@ -1,0 +1,12 @@
+---
+import slide1 from "../../assets/images/home/carrusel/slide1.jpg";
+import { Image } from "astro:assets";
+import bgWave from "../../assets/images/home/carrusel/curve.svg";
+---
+
+<div class="h-screen w-full relative">
+  <Image src={slide1} alt="Talavera store" class="w-full h-full object-cover" />
+  <div class="absolute w-full bottom-0">
+    <Image src={bgWave} alt="Wave" class="w-full object-cover -mb-1 -ml-1" />
+  </div>
+</div>
