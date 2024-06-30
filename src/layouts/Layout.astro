@@ -29,6 +29,7 @@ const { title } = Astro.props;
   .autoShow {
     animation: autoShowAnimation;
     animation-timeline: view(80% auto);
+    -webkit-animation-timeline: view(80% auto);
   }
   @keyframes autoShowAnimation {
     from {
@@ -44,6 +45,7 @@ const { title } = Astro.props;
   .right-fadeIn {
     animation: rightFadeIn 1s ease-in-out;
     animation-timeline: view(70% auto);
+    -webkit-animation-timeline: view(70% auto);
   }
 
   @keyframes rightFadeIn {
@@ -60,8 +62,10 @@ const { title } = Astro.props;
   .left-fadeIn {
     animation: leftFadeIn 1s ease-in-out;
     animation-timeline: view(70% auto);
+    -webkit-animation-timeline: view(70% auto);
   }
 
+  /* add mozilla webkit  */
   @keyframes leftFadeIn {
     from {
       opacity: 0;

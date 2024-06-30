@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import cow from "../../assets/images/about/cow2.png";
+import icon1 from "../../assets/images/about/icon1.svg";
+import icon2 from "../../assets/images/about/icon2.svg";
+import icon3 from "../../assets/images/about/icon3.svg";
+import MountainBG from "../Utilities/MountainBG.astro";
+---
+
+<section class="bg-white min-h-screen relative">
+  <div
+    class="p-8 grid grid-cols-1 lg:grid-cols-2 gap-0 max-w-screen-xl mx-auto"
+  >
+    <div class="flex flex-col justify-center left-fadeIn">
+      <h2 class="text-2xl lg:text-3xl">Autentico sabor desde hace</h2>
+      <h3 class="text-4xl lg:text-5xl font-extrabold text-blue-900">
+        más de 15 años
+      </h3>
+      <p class="text-lg mt-4">
+        En Talavera Selecta nos hemos establecido como líderes en la venta de
+        quesos estilo latino, cárnicos, arepas y dulces. Esta extensa
+        experiencia nos ha permitido demostrar nuestro compromiso con la
+        excelencia en cada aspecto de nuestra marca.
+      </p>
+    </div>
+    <div class="right-fadeIn">
+      <Image src={cow} alt="Vaca" />
+    </div>
+  </div>
+
+  <div
+    class="bg-blue-950 text-white flex justify-center md:justify-evenly gap-8 py-12 h-[50vh] 2xl:h-[40vh]"
+  >
+    <div class="text-center autoShow">
+      <Image src={icon1} alt="Icono 1" />
+      <p>
+        Líderes en <br />
+        Calidad
+      </p>
+    </div>
+    <div class="text-center autoShow">
+      <Image src={icon2} alt="Icono 1" />
+      <p>
+        Variedad de <br />
+        Sabores
+      </p>
+    </div>
+    <div class="text-center autoShow">
+      <Image src={icon3} alt="Icono 1" />
+      <p>
+        Productos <br />
+        Calidad
+      </p>
+    </div>
+  </div>
+  <MountainBG />
+</section>
