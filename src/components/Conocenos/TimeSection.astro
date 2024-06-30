@@ -7,7 +7,7 @@ import icon3 from "../../assets/images/about/icon3.svg";
 import MountainBG from "../Utilities/MountainBG.astro";
 ---
 
-<section class="bg-white min-h-screen relative">
+<section class="bg-white">
   <div
     class="p-8 grid grid-cols-1 lg:grid-cols-2 gap-0 max-w-screen-xl mx-auto"
   >
@@ -29,7 +29,7 @@ import MountainBG from "../Utilities/MountainBG.astro";
   </div>
 
   <div
-    class="bg-blue-950 text-white flex justify-center md:justify-evenly gap-8 py-12 h-[50vh] 2xl:h-[40vh]"
+    class="bg-blue-950 text-white flex justify-center md:justify-evenly gap-8 py-12"
   >
     <div class="text-center autoShow">
       <Image src={icon1} alt="Icono 1" />
@@ -53,5 +53,7 @@ import MountainBG from "../Utilities/MountainBG.astro";
       </p>
     </div>
   </div>
-  <MountainBG />
+  <div class="h-28 relative bg-blue-950">
+    <MountainBG />
+  </div>
 </section>
