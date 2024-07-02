@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+import MountainBG from "../Utilities/MountainBG.astro";
+---
+
+<section class="relative">
+  <div
+    class="bg-white max-w-screen-xl mx-auto grid grid-cols-3 relative btn-section"
+  >
+    <div class="flex flex-col items-center justify-center md:justify-end p-16">
+      <Icon name="book" class="text-5xl md:text-7xl text-white" />
+      <p class="text-white text-center text-xs md:text-lg font-semibold mt-3">
+        Expande tu catálogo <br />
+        de productos
+      </p>
+    </div>
+    <div class="flex flex-col items-center justify-center md:justify-end p-16">
+      <Icon name="achieve" class="text-5xl md:text-7xl text-white" />
+      <p class="text-white text-center text-sm md:text-lg font-semibold mt-3">
+        Calidad y experiencia
+        <br />
+        garantizadas
+      </p>
+    </div>
+    <div class="flex flex-col items-center justify-center md:justify-end p-16">
+      <Icon name="smile" class="text-xl md:text-4xl text-white" />
+      <p class="text-white text-center text-sm md:text-lg font-semibold mt-3">
+        Autenticos sabores<br />
+        latinoamericanos
+      </p>
+    </div>
+  </div>
+  <div class="flex justify-center gap-4 md:gap-24 px-4 py-16">
+    <a
+      href="#"
+      class="bg-blue-950 hover:bg-opacity-80 text-white py-2 px-8 rounded-full font-bold mt-1.5 inline-block"
+      >Descargar catalogo</a
+    >
+    <a
+      href="#"
+      class="bg-[#039DE1] hover:bg-opacity-80 text-white py-2 px-8 rounded-full font-bold mt-1.5 flex max-w-content items-center justify-center gap-2"
+    >
+      <Icon name="WhatsApp" class="text-white text-3xl" />
+      Más información</a
+    >
+  </div>
+  <div class="h-28">
+    <MountainBG />
+  </div>
+</section>
+
+<style>
+  .btn-section {
+    background-image: url("/public/images/bg-blue.svg");
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+  }
+</style>
