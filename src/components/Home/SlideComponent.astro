@@ -5,8 +5,145 @@ import bgWave from "../../assets/images/home/carrusel/curve.svg";
 ---
 
 <div class="h-screen w-full relative">
-  <Image src={slide1} alt="Talavera store" class="w-full h-full object-cover" />
+  <div class="bg-blue-400 w-full h-screen carrusel">
+    <!-- <Image
+      src={slide1}
+      alt="Talavera store"
+      class="w-full h-full object-cover"
+    /> -->
+
+    <div
+      class="atras absolute z-50 flex items-center left-5 md:left-20 h-screen"
+    >
+      <button id="atras" class="text-7xl text-white">
+        {"<"}
+      </button>
+    </div>
+    <div class="imagenes">
+      <div id="img" class="w-full h-full">
+        <Image src={slide1} alt="Talavera store" class="img" loading="lazy" />
+      </div>
+    </div>
+    <div class="texto" id="texto">
+      <h3>este es un texto</h3>
+    </div>
+    <div
+      class="adelante absolute top-0 right-5 md:right-20 z-50 flex items-center h-screen"
+      id="adelante"
+    >
+      <button id="adelante" class="text-7xl text-white">
+        {">"}
+      </button>
+    </div>
+  </div>
+
+  <!-- onda en la parte inferior  -->
   <div class="absolute w-full bottom-0">
     <Image src={bgWave} alt="Wave" class="w-full object-cover -mb-1 -ml-1" />
   </div>
 </div>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+  .carousel {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imagenes {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(175%);
+  }
+
+  .texto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(212, 14, 14);
+    padding: 10px;
+    text-align: center;
+  }
+</style>
+<script>
+  let image1 = "/images/home/carrusel/slide1.jpg";
+  let image2 = "/images/home/carrusel/slide2.jpg";
+  let image3 = "/images/home/carrusel/slide3.jpg";
+  let image4 = "/images/home/carrusel/slide4.jpg";
+
+  let imagenes = [
+    {
+      url: image1,
+      nombre: "Arepas",
+      descripcion:
+        "Arepas de maíz pelado rellenas de carne mechada, pollo, pernil, queso, chicharrón, entre otros.",
+    },
+    {
+      url: image2,
+      nombre: "Quesos",
+      descripcion:
+        "Quesos frescos, semiduros, duros, madurados, ahumados, entre otros.",
+    },
+    {
+      url: image3,
+      nombre: "Carnicos",
+      descripcion:
+        "Carnes de res, cerdo, pollo, pescado, embutidos, entre otros.",
+    },
+    {
+      url: image4,
+      nombre: "Dulces",
+      descripcion: "Dulces típicos, tortas, galletas, panes, entre otros.",
+    },
+  ];
+
+  let atras = document.getElementById("atras");
+  let adelante = document.getElementById("adelante");
+  let imagen = document.getElementById("img");
+  let actual = 0;
+
+  atras.addEventListener("click", () => {
+    console.log("atras", imagenes);
+    actual--;
+    if (actual < 0) {
+      actual = imagenes.length - 1;
+    }
+    imagen.innerHTML = `<Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover " loading="lazy" />`;
+  });
+
+  adelante.addEventListener("click", () => {
+    actual++;
+    if (actual > imagenes.length - 1) {
+      actual = 0;
+    }
+
+    console.log("adelante", actual, imagenes[actual].url);
+    if (actual > imagenes.length - 1) {
+      actual = 0;
+    }
+    imagen.innerHTML = `
+      <Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover" loading="lazy" />
+    `;
+    //animar la entrada de la imagen
+    imagen.style.animation = "fadeIn 1s";
+    imagen.style.animationTimingFunction = "ease-in-out";
+    imagen.style.animationFillMode = "forwards";
+  });
+
+  setInterval(() => {
+    adelante.click();
+  }, 4000);
+</script>

@@ -1,0 +1,35 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  class="group text-white flex gap-1 items-center bg-sky-500 py-2 px-5 rounded-tl-xl rounded-bl-xl fixed bottom-8 right-0 text-4xl z-50"
+>
+  <Icon name="WhatsApp" />
+  <span class="text-lg leading-none hidden group-hover:block md:block">
+    Solicita más<br /><span class="font-bold">información</span></span
+  >
+</button>
+
+<button
+  id="scrollToTop"
+  class="group text-white flex gap-1 items-center bg-sky-500 py-2 px-5 rounded-tl-xl rounded-bl-xl fixed bottom-28 right-0 text-4xl z-50"
+>
+  ⮝
+</button>
+
+<script>
+  //mostrar el el boton de scroll to top cuando el scroll sea mayor a 400
+  window.addEventListener("scroll", () => {
+    const scrollToTop = document.getElementById("scrollToTop");
+    if (window.scrollY > 400) {
+      scrollToTop.style.display = "block";
+    } else {
+      scrollToTop.style.display = "none";
+    }
+  });
+
+  document.getElementById("scrollToTop").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

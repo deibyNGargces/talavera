@@ -2,11 +2,36 @@
 import Navbar from "./Navbar.astro";
 import whiteLogo from "../assets/images/whiteLogo.svg";
 import { Image } from "astro:assets";
+import Menu from "./Menu/Menu.astro";
+
+const routes = [
+  { name: "Home", href: "/" },
+  { name: "Conocenos", href: "/about" },
+  {
+    name: "Nuestros Productos",
+    href: "#",
+    subRoutes: [
+      { name: "Quesos", href: "/products/quesos" },
+      { name: "Carnicos", href: "/products/carnicos" },
+      { name: "Arepas", href: "/products/arepas" },
+      { name: "Tarrinas", href: "/products/tarrinas" },
+      { name: "Dulces", href: "/products/dulces" },
+    ],
+  },
+  // { name: "Yeguada Selecta", href: "/yeguada" },
+  { name: "Blog", href: "/blog" },
+  { name: "Conviertete en Distribuidor", href: "/distributors" },
+  // { name: "Contactanos", href: "/contact" },
+];
 ---
 
-<nav class="py-4 shadow-sm fixed z-[1000] w-full flex justify-between px-10">
-  <a href="/" class="flex items-center justify-center">
-    <Image src={whiteLogo} alt="Logo" class="w-16 h-16" />
+<Menu routes={routes}>
+  <Image src={whiteLogo} alt="Logo" slot="logo" class="h-20" />
+  <a
+    href="/contact"
+    slot="endLink"
+    class="ml-6 py-3 flex text-blue-950 font-bold"
+  >
+    <span class="bg-white p-2 rounded-xl">Contáctanos</span>
   </a>
-  <Navbar />
-</nav>
+</Menu>

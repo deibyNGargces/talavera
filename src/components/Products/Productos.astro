@@ -1,0 +1,48 @@
+---
+import ProductCard from "./ProductCard.astro";
+import quesos from "../../assets/images/home/products/queso.png";
+import carnicos from "../../assets/images/home/products/carnes.png";
+import arepas from "../../assets/images/home/products/arepa.png";
+import tarrinas from "../../assets/images/home/products/tarrina.png";
+import dulces from "../../assets/images/home/products/dulces.png";
+
+// image, name, id, category
+const products = [
+  {
+    image: quesos,
+    name: "Queso",
+    id: "queso",
+    category: "quesos",
+  },
+  {
+    image: dulces,
+    name: "Dulces",
+    id: "dulces",
+    category: "dulces",
+  },
+  {
+    image: carnicos,
+    name: "Carnicos",
+    id: "carnicos",
+    category: "carnicos",
+  },
+  {
+    image: arepas,
+    name: "Arepas",
+    id: "arepas",
+    category: "arepas",
+  },
+  {
+    image: tarrinas,
+    name: "Tarrinas",
+    id: "tarrinas",
+    category: "tarrinas",
+  },
+];
+---
+
+<div
+  class="max-w-screen-xl p-2 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+>
+  {products.map((product) => <ProductCard {...product} />)}
+</div>

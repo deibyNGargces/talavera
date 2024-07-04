@@ -1,0 +1,186 @@
+---
+const { routes, breackPoint = "900px" } = Astro.props;
+console.log(routes);
+---
+
+<header>
+  <a href="/" class="logo"><slot name="logo" /> </a>
+  <div class="menuToggle"></div>
+  <nav>
+    <ul>
+      {
+        routes.map((route) => (
+          <li>
+            <a href={route.href}>
+              {route.name}
+              {route.subRoutes && <b>▼</b>}
+            </a>
+            {route.subRoutes && (
+              <ul>
+                {route.subRoutes.map((subRoute) => (
+                  <li>
+                    {" "}
+                    <a href={subRoute.href}>{subRoute.name}</a>{" "}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+
+      <li>
+        <slot name="endLink" />
+      </li>
+
+      <!-- <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li>
+        <a href="#">Productos<b>▼</b> </a>
+        <ul>
+          <li><a href="/productos">Carnes</a></li>
+          <li><a href="/productos">Quesos</a></li>
+          <li><a href="/productos">Dulces</a></li>
+        </ul>
+      </li> -->
+    </ul>
+  </nav>
+</header>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+  header {
+    position: absolute;
+    width: 100%;
+    min-height: 66px;
+    background-color: rgba(200, 200, 200, 0.55);
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  header .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 10px 20px;
+  }
+
+  header ul {
+    position: relative;
+  }
+
+  header ul li {
+    list-style: none;
+    float: left;
+    position: relative;
+  }
+
+  header ul li a {
+    color: #fff;
+    font-size: 1.1em;
+    padding: 20px 25px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s;
+    border-bottom: 6px solid rgba(255, 0, 0, 0);
+  }
+
+  header ul li a:hover {
+    /* background-color: #fff; */
+    border-bottom: 6px solid #fff;
+  }
+
+  header ul li ul {
+    position: absolute;
+    left: 0;
+    background-color: rgba(200, 200, 200, 0.5);
+    min-width: 200px;
+    display: none;
+  }
+  header ul li:hover ul {
+    display: block;
+  }
+
+  header ul li ul li {
+    width: 100%;
+    float: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  /* si estoy en pagina de ese link me muestra un background red  */
+  header ul li a.active {
+    background-color: red;
+  }
+
+  /* mow make it responsive tomara el valor de breackPoint que llega en los props */
+  @media (max-width: 1400px) {
+    header {
+      padding: 10px 20px;
+    }
+    header nav {
+      position: absolute;
+      width: 100%;
+      top: 120px;
+      left: 0;
+      background-color: rgba(200, 200, 200);
+      /* display: none; */
+      height: 0;
+      overflow: hidden;
+      transition: all 1s ease-in-out;
+      opacity: 0;
+    }
+    header.active nav {
+      /* display: block; */
+      height: max-content;
+      transition: all 0.5s ease-in-out;
+      opacity: 1;
+    }
+
+    header nav ul li {
+      width: 100%;
+    }
+
+    header nav ul li ul {
+      position: relative;
+      width: 100%;
+      left: 0;
+    }
+    .menuToggle {
+      width: 40px;
+      height: 50px;
+      color: #fff;
+      text-align: center;
+      justify-content: center;
+      font-size: 30px;
+      cursor: pointer;
+      display: flex;
+    }
+    .menuToggle:before {
+      content: "\2630";
+    }
+    header.active .menuToggle:before {
+      content: "\2715";
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector(".menuToggle") as HTMLElement;
+  const header = document.querySelector("header");
+  menuToggle.onclick = function () {
+    menuToggle?.classList.toggle("active");
+    header?.classList.toggle("active");
+  };
+</script>

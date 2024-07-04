@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+import Productos from "./Productos.astro";
+
+const { product } = Astro.props;
+---
+
+<section class="min-h-screen bg-white pt-20 mb-20">
+  <div class="max-w-screen-xl mx-auto">
+    <div>
+      <p class="text-2xl lg:text-4xl text-center">Disfruta cada uno de</p>
+      <p class="text-4xl lg:text-6xl font-bold text-center">
+        nuestros productos
+      </p>
+    </div>
+    <div
+      class="flex flex-wrap justify-center lg:gap-8 text-3xl md:text-5xl lg:text-7xl"
+    >
+      <button
+        class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
+        ${product === "quesos" ? "text-sky-500" : "text-gray-300"}
+        `}
+        disabled={product === "quesos"}
+      >
+        <Icon name="Queso" />
+        <span class="text-lg font-bold">Quesos</span>
+      </button>
+      <!-- Carnicos -->
+      <button
+        class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
+        ${product === "carnicos" ? "text-sky-500" : "text-gray-300"}
+        `}
+        disabled={product === "carnicos"}
+      >
+        <Icon name="Carnico" />
+        <span class="text-lg font-bold">Cárnicos</span>
+      </button>
+      <!-- Arepas -->
+      <button
+        class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
+            ${product === "arepas" ? "text-sky-500" : "text-gray-300"}
+            `}
+        disabled={product === "arepas"}
+      >
+        <Icon name="Arepa" />
+        <span class="text-lg font-bold">Arepas</span>
+      </button>
+      <!-- Tarrinas -->
+      <button
+        class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
+            ${product === "tarrinas" ? "text-sky-500" : "text-gray-300"}
+            `}
+        disabled={product === "tarrinas"}
+      >
+        <Icon name="Tarrina" />
+        <span class="text-lg font-bold">Tarrinas</span>
+      </button>
+
+      <!-- Dulces -->
+      <button
+        class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
+            ${product === "dulces" ? "text-sky-500" : "text-gray-300"}
+            `}
+        disabled={product === "dulces"}
+      >
+        <Icon name="Dulce" />
+        <span class="text-lg font-bold">Dulces</span>
+      </button>
+    </div>
+  </div>
+  <Productos />
+</section>

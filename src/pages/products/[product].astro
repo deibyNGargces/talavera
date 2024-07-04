@@ -1,0 +1,24 @@
+---
+import SlideComponent from "@components/Home/SlideComponent.astro";
+import Layout from "../../layouts/Layout.astro";
+import ProductsComponent from "@components/Products/ProductsComponent.astro";
+import BottomBannerProducts from "@components/Products/BottomBannerProducts.astro";
+export function getStaticPaths() {
+  return [
+    { params: { product: "quesos" } },
+    { params: { product: "carnicos" } },
+    { params: { product: "arepas" } },
+    { params: { product: "tarrinas" } },
+    { params: { product: "dulces" } },
+  ];
+}
+const { product } = Astro.params;
+---
+
+<Layout title="Productos Selectos">
+  <main>
+    <SlideComponent />
+    <ProductsComponent product={product} />
+    <BottomBannerProducts />
+  </main>
+</Layout>

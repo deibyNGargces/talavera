@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="h-screen bg-white banner-products flex flex-col justify-between"
+>
+  <div class="w-full text-center md:mb-20 p-4">
+    <h2 class="text-3xl lg:text-5xl">Los productos</h2>
+    <h1 class="text-3xl lg:text-5xl font font-extrabold">
+      indispensables para tu mesa
+    </h1>
+  </div>
+  <div
+    class="max-w-screen-lg w-full h-[40vh] md:h-[80vh] lg:h-[60vh] mx-auto p-2 md:p-8 grid grid-cols-2 items-center justify-center"
+  >
+    <div class="flex justify-start">
+      <div class="flex flex-col items-center">
+        <Icon name="Variedad" class="text-7xl" />
+        <p class="text-center min-w-max text-xl font-bold">
+          Variedad de <br /> productos
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end">
+      <div class="flex flex-col items-center">
+        <Icon name="Frescura" class="text-7xl" />
+        <p class="text-center text-xl font-bold">Productos <br /> frescos</p>
+      </div>
+    </div>
+    <div class="flex justify-start">
+      <div class="flex flex-col items-center">
+        <Icon name="Calidad" class="text-7xl" />
+        <p class="text-center text-xl font-bold">Lideres en <br /> calidad</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end">
+      <div class="flex flex-col items-center">
+        <Icon name="Sabor" class="text-3xl" />
+        <p class="text-center text-xl font-bold">Autenticos <br /> sabores</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .banner-products {
+    background-image: url("../../assets/images/products/banner-products.png");
+    background-size: cover;
+    background-position: bottom center;
+  }
+
+  .banner-products h2 {
+    font-size: 2rem;
+  }
+
+  .banner-products h3 {
+    font-size: 1.5rem;
+  }
+</style>
