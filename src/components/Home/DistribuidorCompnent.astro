@@ -5,8 +5,53 @@ import { Image } from "astro:assets";
 import MountainBG from "../Utilities/MountainBG.astro";
 ---
 
-<section class="relative bg-[#272967] main-distribuidor flex justify-center">
+<section class="bg-blue-950 hero-distribuidor relative md:h-[75vh] lg:h-[80vh]">
   <WaveTop />
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 h-screen items-center max-w-screen-xl mx-auto justify-center"
+  >
+    <div>
+      <div class="w-full text-white relative p-4 left-fadeIn">
+        <h2 class="text-left text-4xl lg:text-6xl font-bold">
+          Únete a <span class="font-normal block"> nuestra familia</span>
+          de distribuidores
+        </h2>
+        <p class="text-2xl mt-4">
+          Amplía tu catálogo con nuestros sabores únicos. Forma parte de nuestra
+          red de distribuidores y brinda a tus clientes la experiencia de
+          nuestra cocina en cada producto.
+        </p>
+        <a
+          href="#"
+          class="bg-[#599DDF] text- py-1 px-8 rounded-full font-bold mt-4 inline-block"
+          >Más información</a
+        >
+      </div>
+    </div>
+    <div></div>
+  </div>
+  <div
+    class="h-[40vh] md:h-[50vh] lg:h-[80vh] absolute bottom-0 right-0 lg:right-40 z-10"
+  >
+    <Image
+      src={menImage}
+      alt="Distribuidor"
+      class="h-full w-auto object-cover"
+    />
+  </div>
+</section>
+
+<style>
+  .hero-distribuidor {
+    background-image: url("../../assets/images/distribuidor/heroDistribuidor.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<!-- 
+<section class="relative bg-[#272967] main-distribuidor flex justify-center">
   <div
     class="h-[70vh] lg:h-screen flex flex-col lg:flex-row lg:items-center justify-center lg:justify-start max-w-screen-lg"
   >
@@ -46,4 +91,4 @@ import MountainBG from "../Utilities/MountainBG.astro";
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
-</style>
+</style> -->

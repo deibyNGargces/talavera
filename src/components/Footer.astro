@@ -1,49 +1,80 @@
 ---
+import { Image } from "astro:assets";
+import logo from "@/assets/images/logoBlue.svg";
+import logoPF from "@/assets/images/logoPFWhite.svg";
 import Navbar from "./Navbar.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <footer
-  class="bg-[#F0F0F0] flex flex-col items-center justify-center text-center footer-style pt-1s0 2xl:pt-32 text-blue-950"
+  class="bg-[#F0F0F0] flex flex-col items-center justify-center footer-style pt-10 2xl:pt-12 text-blue-900"
 >
-  <div class="grid grid-cols-1 lg:grid-cols-3 text-lg w-full max-w-screen-xl">
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 text-lg w-full max-w-screen-xl pb-12 px-4"
+  >
     <div class="flex flex-col items-start gap-5">
-      <div>
-        <p class="text-left font-bold">Correo</p>
+      <div class="text-center md:text-left w-full">
+        <p class="font-extrabold">Correo</p>
         <a href="mailto:correo@talaveraselecta.com"
           >correo@talaveraselecta.com</a
         >
       </div>
-      <div class="flex flex-col">
-        <p class="text-left font-bold">Teléfono</p>
-        <a href="tel:641318605">641 31 8605</a>
-        <a href="tel:663798559">663 79 85 59</a>
-        <a href="tel:686484645">686 48 46 45</a>
+      <div class="flex flex-col w-full text-center md:text-left">
+        <p class="font-extrabold">Teléfono</p>
+        <a href="tel:641318605 ">641 31 86 05</a>
+        <a href="tel:663798559 ">663 79 85 59</a>
+        <a href="tel:686484645 ">686 48 46 45</a>
       </div>
     </div>
-    <div class="flex justify-center items-center">Logo</div>
-    <div class="text-left flex flex-col gap-5">
+    <!-- LOGO  -->
+    <div class="my-4 flex gap-3 justify-center items-center flex-col">
+      <Image src={logo} alt="Talavera Selecta" class="w-28" />
+      <div class="flex gap-4">
+        <!-- Instragram -->
+        <a
+          href="https://www.instagram.com/talaveraselecta/"
+          target="_blank"
+          rel="noopener"
+          class="text-2xl text-white bg-blue-900 p-2 rounded-full"
+        >
+          <Icon name="InstagramFill" />
+        </a>
+        <!-- Facebook -->
+
+        <a
+          href="https://www.facebook.com/talaveraselecta"
+          target="_blank"
+          rel="noopener"
+          class="text-2xl text-white bg-blue-900 p-2 rounded-full"
+        >
+          <Icon name="Facebook" />
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 text-center md:text-left w-full">
       <div>
-        <p class="font-bold">Almacén</p>
+        <p class="font-extrabold">Almacén</p>
         <p class="">Avenida Isaac Newton 7,</p>
         <p class="">Getafe – Madrid CP 28906</p>
       </div>
       <div>
-        <p class="font-bold">Fábrica</p>
+        <p class="font-extrabold">Fábrica</p>
         <p class="">Calle Goicoechea 15, Plasencia.</p>
         <p class="">Cáceres CP 10600. Extremadura</p>
       </div>
     </div>
   </div>
-  <div><Navbar /></div>
-  <div>
+  <!-- <div class="bg-white w-full py-4"><Navbar /></div> -->
+  <div class="bg-blue-900 w-full p-4 flex justify-center gap-2">
     <p class="powered">Copyright © 2024 Talavera Selecta - Powered by</p>
+    <Image src={logoPF} alt="Paco Fernández" class="w-12" />
   </div>
 </footer>
 
 <style>
   .powered {
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 1rem;
+    color: #d3d1d1;
     font-style: oblique;
   }
   .footer-style {

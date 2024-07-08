@@ -9,37 +9,37 @@ import MountainBGWhite from "../../components/Utilities/MountainBGWhite.astro";
 
 const prodcutsArray = [
   {
-    image: arepa,
-    title: "Arepas",
-    path: "arepas",
-  },
-  {
     image: queso,
     title: "Quesos",
-    path: "quesos",
+    path: "/products/quesos",
   },
   {
     image: carnes,
-    title: "Carnes",
-    path: "carnes",
+    title: "Carnicos",
+    path: "/products/carnicos",
   },
   {
-    image: dulces,
-    title: "Dulces",
-    path: "dulces",
+    image: arepa,
+    title: "Arepas",
+    path: "/products/arepas",
   },
   {
     image: tarrina,
     title: "Tarrinas",
-    path: "tarrinas",
+    path: "/products/tarrinas",
+  },
+  {
+    image: dulces,
+    title: "Dulces",
+    path: "/products/dulces",
   },
 ];
 ---
 
-<section class="py-24 bg-[#f0f0f0] relative">
-  <div class="autoShow flex flex-col items-center justify-center my-16">
+<section class="py-16 lg:py-24 bg-[#f0f0f0] relative">
+  <div class="autoShow flex flex-col items-center justify-center mb-3">
     <h2 class="text-2xl">Utilizamos lo mejor del campo</h2>
-    <h3 class="text-4xl font-bold">en nuestros productos</h3>
+    <h3 class="text-4xl lg:text-6xl font-bold">en nuestros productos</h3>
   </div>
   <div
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-36 max-w-screen-xl mx-auto"
@@ -59,7 +59,7 @@ const prodcutsArray = [
                   {product.title}
                 </h3>
                 <a
-                  href={`/${product.path}`}
+                  href={`${product.path}`}
                   class="border py-1 px-6 text-sm mt-2 rounded-full group-hover:border-white group-hover:text-white"
                 >
                   Ver más

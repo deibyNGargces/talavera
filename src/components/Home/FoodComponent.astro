@@ -4,7 +4,9 @@ import foodImage from "../../assets/images/home/food.png";
 import bgWave from "../../assets/images/home/carrusel/curve.svg";
 ---
 
-<section class="min-h-96 w-full relative bg-lime-400 flex items-center">
+<section
+  class="min-h-96 overflow-y-hidden w-full relative bg-[#c2d751] flex items-center"
+>
   <div class="absolute w-full top-0">
     <Image
       src={bgWave}
@@ -37,6 +39,6 @@ import bgWave from "../../assets/images/home/carrusel/curve.svg";
     </div>
   </div>
   <div class="absolute w-full bottom-0">
-    <Image src={bgWave} alt="Wave" class="w-full object-cover -mb-1 -ml-1" />
+    <Image src={bgWave} alt="Wave" class="w-full object-cover -mb-1" />
   </div>
 </section>

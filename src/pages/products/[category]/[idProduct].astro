@@ -1,0 +1,43 @@
+---
+import ProductView from "@components/Products/ProductView.astro";
+import Layout from "../../../layouts/Layout.astro";
+import imageProduct from "../../../assets/images/home/products/arepa.png";
+
+const { idProduct, category } = Astro.params;
+
+const product = {
+  idProduct,
+  category,
+  name: "Arepa Selecta",
+  description: "Arepa de maíz con queso y mantequilla",
+  price: "2.50",
+  presentacion: "Paquete 5 Und - Caja x 30 Und.",
+  image: imageProduct,
+};
+---
+
+<Layout title="producto selecto">
+  <section
+    class="pt-20 px-8 min-h-screen flex flex-col items-center justify-center"
+  >
+    <div class="max-w-screen-xl mx-auto w-full">
+      <button
+        id="back"
+        class="hover:text-gray-700 text-2xl hover:scale-105 transform transition-all duration-300 ease-in-out flex items-center mt-20 md:mt-0 gap-3"
+      >
+        <span class="">❮</span>
+        Volver</button
+      >
+    </div>
+    <div class="w-full max-w-screen-xl mx-auto">
+      <ProductView product={product} />
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const back = document.getElementById("back");
+  back?.addEventListener("click", () => {
+    window.history.back();
+  });
+</script>

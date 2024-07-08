@@ -3,7 +3,7 @@ const { routes, breackPoint = "900px" } = Astro.props;
 console.log(routes);
 ---
 
-<header>
+<header class="">
   <a href="/" class="logo"><slot name="logo" /> </a>
   <div class="menuToggle"></div>
   <nav>
@@ -58,7 +58,7 @@ console.log(routes);
     font-family: "Roboto", sans-serif;
   }
   header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     min-height: 66px;
     background-color: rgba(200, 200, 200, 0.55);

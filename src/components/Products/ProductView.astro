@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+const { product } = Astro.props;
+const { idProduct, category, name, description, image, presentacion } = product;
+//variable que toma la url del producto para poderlo compartir por wsp
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 pb-16">
+  <Image
+    src={image}
+    alt={name}
+    class="h-[50vh] max-h-[60vh] w-auto object-contain"
+  />
+  <div class="flex flex-col gap-6">
+    <h2 class="text-4xl md:text-5xl lg:text-7xl font-bold text-blue-900">
+      {name}
+    </h2>
+    <div>
+      <p class="text-xl">{description}</p>
+      <p class="text-xl font-bold mt-2">Presentación:</p>
+      <p class="text-xl">{presentacion}</p>
+    </div>
+    <a
+      id="share"
+      class="border gap-2 flex items-center max-w-max rounded-full px-8 py-2 text-2xl font-bold bg-blue-900 hover:bg-sky-500 text-white transition-all duration-300 ease-in-out"
+    >
+      <Icon name="WhatsApp" class="text-4xl" />
+      Más información</a
+    >
+  </div>
+</div>
+<script>
+  const url = window.location.href;
+  const share = document.getElementById("share");
+  share?.addEventListener("click", () => {
+    window.open(`https://api.whatsapp.com/send?text=${url}`);
+  });
+</script>

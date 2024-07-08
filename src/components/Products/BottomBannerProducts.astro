@@ -1,4 +1,5 @@
 ---
+import MountainBG from "@components/Utilities/MountainBG.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -12,12 +13,12 @@ import { Icon } from "astro-icon/components";
     </h1>
   </div>
   <div
-    class="max-w-screen-lg w-full h-[40vh] md:h-[80vh] lg:h-[60vh] mx-auto p-2 md:p-8 grid grid-cols-2 items-center justify-center"
+    class="max-w-screen-lg w-full h-[8vh] md:h-[80vh] lg:h-[60vh] mx-auto p-2 md:p-8 grid grid-cols-2 items-center justify-center"
   >
     <div class="flex justify-start">
       <div class="flex flex-col items-center">
-        <Icon name="Variedad" class="text-7xl" />
-        <p class="text-center min-w-max text-xl font-bold">
+        <Icon name="Variedad" class="text-4xl md:text-7xl" />
+        <p class="text-center min-w-max text-sm md:text-xl font-bold">
           Variedad de <br /> productos
         </p>
       </div>
@@ -25,23 +26,32 @@ import { Icon } from "astro-icon/components";
 
     <div class="flex flex-col items-end">
       <div class="flex flex-col items-center">
-        <Icon name="Frescura" class="text-7xl" />
-        <p class="text-center text-xl font-bold">Productos <br /> frescos</p>
+        <Icon name="Frescura" class="text-4xl md:text-7xl" />
+        <p class="text-center text-sm md:text-xl font-bold">
+          Productos <br /> frescos
+        </p>
       </div>
     </div>
     <div class="flex justify-start">
       <div class="flex flex-col items-center">
-        <Icon name="Calidad" class="text-7xl" />
-        <p class="text-center text-xl font-bold">Lideres en <br /> calidad</p>
+        <Icon name="Calidad" class="text-4xl md:text-7xl" />
+        <p class="text-center text-sm md:text-xl font-bold">
+          Lideres en <br /> calidad
+        </p>
       </div>
     </div>
 
     <div class="flex flex-col items-end">
       <div class="flex flex-col items-center">
-        <Icon name="Sabor" class="text-3xl" />
-        <p class="text-center text-xl font-bold">Autenticos <br /> sabores</p>
+        <Icon name="Sabor" class="text-xl md:text-3xl" />
+        <p class="text-center text-sm md:text-xl font-bold">
+          Autenticos <br /> sabores
+        </p>
       </div>
     </div>
+  </div>
+  <div class="relative">
+    <MountainBG />
   </div>
 </section>
 
