@@ -1,5 +1,6 @@
 ---
 import slide1 from "../../assets/images/home/carrusel/slide1.jpg";
+import slideMin1 from "../../assets/images/home/carrusel/minslide1.png";
 import { Image } from "astro:assets";
 import bgWave from "../../assets/images/home/carrusel/curve.svg";
 import { Icon } from "astro-icon/components";
@@ -7,12 +8,6 @@ import { Icon } from "astro-icon/components";
 
 <div class="h-screen w-full relative">
   <div class="bg-blue-400 w-full h-screen carrusel">
-    <!-- <Image
-      src={slide1}
-      alt="Talavera store"
-      class="w-full h-full object-cover"
-    /> -->
-
     <div
       class="atras absolute z-50 flex items-center left-5 md:left-20 h-screen"
     >
@@ -27,7 +22,18 @@ import { Icon } from "astro-icon/components";
     </div>
     <div class="imagenes">
       <div id="img" class="w-full h-full">
-        <Image src={slide1} alt="Talavera store" class="img" loading="lazy" />
+        <Image
+          src={slide1}
+          alt="Talavera store"
+          class="img hidden lg:block"
+          loading="lazy"
+        />
+        <Image
+          src={slideMin1}
+          alt="Talavera store"
+          class="img lg:hidden"
+          loading="lazy"
+        />
       </div>
     </div>
 
@@ -80,28 +86,36 @@ import { Icon } from "astro-icon/components";
   let image2 = "/images/home/carrusel/slide2.jpg";
   let image3 = "/images/home/carrusel/slide3.jpg";
   let image4 = "/images/home/carrusel/slide4.jpg";
+  let minslide1 = "/images/home/carrusel/minslide1.png";
+  let minslide2 = "/images/home/carrusel/minslide2.png";
+  let minslide3 = "/images/home/carrusel/minslide3.png";
+  let minslide4 = "/images/home/carrusel/minslide4.png";
 
   let imagenes = [
     {
       url: image1,
+      urlMin: minslide1,
       nombre: "Arepas",
       descripcion:
         "Arepas de maíz pelado rellenas de carne mechada, pollo, pernil, queso, chicharrón, entre otros.",
     },
     {
       url: image2,
+      urlMin: minslide2,
       nombre: "Quesos",
       descripcion:
         "Quesos frescos, semiduros, duros, madurados, ahumados, entre otros.",
     },
     {
       url: image3,
+      urlMin: minslide3,
       nombre: "Carnicos",
       descripcion:
         "Carnes de res, cerdo, pollo, pescado, embutidos, entre otros.",
     },
     {
       url: image4,
+      urlMin: minslide4,
       nombre: "Dulces",
       descripcion: "Dulces típicos, tortas, galletas, panes, entre otros.",
     },
@@ -118,7 +132,10 @@ import { Icon } from "astro-icon/components";
     if (actual < 0) {
       actual = imagenes.length - 1;
     }
-    imagen.innerHTML = `<Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover " loading="lazy" />`;
+    imagen.innerHTML = `
+     <Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover hidden lg:block" loading="lazy" />
+      <Image src="${imagenes[actual].urlMin}" alt="Talavera store" class="img h-full w-full object-cover lg:hidden " loading="lazy" />
+    `;
   });
 
   adelante.addEventListener("click", () => {
@@ -132,7 +149,8 @@ import { Icon } from "astro-icon/components";
       actual = 0;
     }
     imagen.innerHTML = `
-      <Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover" loading="lazy" />
+      <Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover hidden lg:block" loading="lazy" />
+      <Image src="${imagenes[actual].urlMin}" alt="Talavera store" class="img h-full w-full object-cover lg:hidden " loading="lazy" />
     `;
     //animar la entrada de la imagen
     imagen.style.animation = "fadeIn 1s";

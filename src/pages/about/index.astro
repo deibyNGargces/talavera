@@ -1,4 +1,5 @@
 ---
+import MountainBG from "@components/Utilities/MountainBG.astro";
 import ExpirienceComponent from "../../components/Conocenos/ExpirienceComponent.astro";
 import FabricGalery from "../../components/Conocenos/FabricGalery.astro";
 import HeroBanerConocenos from "../../components/Conocenos/HeroBanerConocenos.astro";
@@ -14,5 +15,8 @@ import Layout from "../../layouts/Layout.astro";
     <ExpirienceComponent />
     <FabricGalery />
     <DistribuidorCompnent />
+    <div class="relative h-28 md:h-24 lg:h-16 xl:h-8 z-10">
+      <MountainBG />
+    </div>
   </main>
 </Layout>

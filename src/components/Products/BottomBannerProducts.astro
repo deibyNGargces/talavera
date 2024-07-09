@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section
-  class="h-screen bg-white banner-products flex flex-col justify-between"
+  class="h-screen bg-white banner-products flex flex-col md:justify-between relative"
 >
   <div class="w-full text-center md:mb-20 p-4">
     <h2 class="text-3xl lg:text-5xl">Los productos</h2>
@@ -13,9 +13,9 @@ import { Icon } from "astro-icon/components";
     </h1>
   </div>
   <div
-    class="max-w-screen-lg w-full h-[8vh] md:h-[80vh] lg:h-[60vh] mx-auto p-2 md:p-8 grid grid-cols-2 items-center justify-center"
+    class="max-w-screen-lg w-full md:h-[80vh] lg:h-[60vh] mx-auto gap-4 p-8 grid grid-cols-4 md:grid-cols-2 items-center justify-center"
   >
-    <div class="flex justify-start">
+    <div class="flex md:justify-start">
       <div class="flex flex-col items-center">
         <Icon name="Variedad" class="text-4xl md:text-7xl" />
         <p class="text-center min-w-max text-sm md:text-xl font-bold">
@@ -24,7 +24,7 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
 
-    <div class="flex flex-col items-end">
+    <div class="flex flex-col md:items-end">
       <div class="flex flex-col items-center">
         <Icon name="Frescura" class="text-4xl md:text-7xl" />
         <p class="text-center text-sm md:text-xl font-bold">
@@ -32,7 +32,7 @@ import { Icon } from "astro-icon/components";
         </p>
       </div>
     </div>
-    <div class="flex justify-start">
+    <div class="flex md:justify-start">
       <div class="flex flex-col items-center">
         <Icon name="Calidad" class="text-4xl md:text-7xl" />
         <p class="text-center text-sm md:text-xl font-bold">
@@ -41,8 +41,10 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
 
-    <div class="flex flex-col items-end">
-      <div class="flex flex-col items-center">
+    <div
+      class="flex flex-col md:items-end justify-end md:justify-center h-full"
+    >
+      <div class="flex flex-col justify-end items-center">
         <Icon name="Sabor" class="text-xl md:text-3xl" />
         <p class="text-center text-sm md:text-xl font-bold">
           Autenticos <br /> sabores
@@ -50,7 +52,7 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
   </div>
-  <div class="relative">
+  <div class="">
     <MountainBG />
   </div>
 </section>

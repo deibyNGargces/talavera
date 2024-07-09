@@ -68,6 +68,9 @@ console.log(routes);
     align-items: center;
     z-index: 1000;
   }
+  header.scrolled {
+    background-color: rgba(200, 200, 200);
+  }
 
   header .logo {
     color: #fff;
@@ -182,5 +185,15 @@ console.log(routes);
   menuToggle.onclick = function () {
     menuToggle?.classList.toggle("active");
     header?.classList.toggle("active");
+  };
+
+  // al hacer scroll en la pagina el header se va a poner de color blanco
+  window.onscroll = function () {
+    const top = window.scrollY;
+    if (top >= 400) {
+      header?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+    }
   };
 </script>

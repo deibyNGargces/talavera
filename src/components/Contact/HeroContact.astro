@@ -1,6 +1,6 @@
 ---
 import Image from "astro/components/Image.astro";
-import wave from "../../../public/images/contact/wave-haikei.svg";
+import wave from "../../../public/images/curvegrey.svg";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
     ¡TE ESCUCHAMOS!
   </h2>
   <h1 class="text-5xl lg:text-7xl font-extrabold">Contactanos</h1>
-  <Image src={wave} alt="Wave" class="w-full absolute bottom-0" />
+  <Image src={wave} alt="Wave" class="w-full absolute -bottom-1" />
 </div>
 
 <div class="flex py-16 flex-col justify-center items-center contact-cards">
@@ -19,11 +19,8 @@ import { Icon } from "astro-icon/components";
     </h2>
     <p class="text-lg lg:text-2xl">
       ¡Estamos aquí para escucharte! Ponte en contacto con nuestro equipo para
-      resolver cualquier duda, consulta o sugerencia que tengas. <span
-        class="font-bold"
-      >
-        ¡Esperamos conocerte pronto!
-      </span>
+      resolver cualquier duda, consulta o sugerencia que tengas. <br />
+      <span class="font-bold"> ¡Esperamos conocerte pronto! </span>
     </p>
   </div>
   <div
@@ -41,7 +38,7 @@ import { Icon } from "astro-icon/components";
     >
       <Icon name="Phone" class="text-6xl" />
       <p class="font-bold">Teléfono</p>
-      <a href="tel:641318605">641 31 8605</a>
+      <a href="tel:641318605">641 31 86 05</a>
       <a href="tel:663798559">663 79 85 59</a>
       <a href="tel:686484645">686 48 46 45</a>
     </div>
@@ -62,6 +59,9 @@ import { Icon } from "astro-icon/components";
       <p class="text-center">
         Calle Goicoechea 15, Plasencia. Cáceres CP 10600. Extremadura
       </p>
+      <a href="tel:622703872" class="flex gap-2">
+        <Icon name="Phone" class="text-xl" /> 622 70 38 72</a
+      >
     </div>
   </div>
 </div>
