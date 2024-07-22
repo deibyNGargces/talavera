@@ -1,0 +1,34 @@
+---
+import WaveBottom from "@components/Utilities/WaveBottom.astro";
+import { Image } from "astro:assets";
+
+export interface BlogPreviewProps {
+  title: any;
+  title2: string;
+  image: string;
+}
+const { title, title2, image } = Astro.props;
+---
+
+<div class="relative h-screen">
+  <Image
+    src={image}
+    alt={title}
+    width={500}
+    height={300}
+    loading="lazy"
+    class="w-screen h-screen object-cover filter brightness-75"
+  />
+  <div
+    class="absolute max-w-screen-sm top-0 bottom-0 my-auto h-full flex flex-col justify-center right-0 md:right-32 text-sky-200 px-4"
+  >
+    <h2 class="text-6xl font-bold">{title}</h2>
+    <p id="description" class="my-2 text-2xl">{title2}</p>
+    <a
+      href="/blog"
+      class="font-bold bg-blue-500 text-white max-w-max px-8 py-2 rounded-xl text-xl"
+      >Ver más</a
+    >
+  </div>
+  <WaveBottom />
+</div>

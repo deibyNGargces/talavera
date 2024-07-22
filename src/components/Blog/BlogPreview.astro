@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+//actuara como una lista para los post y ver que todo funciona bien
+
+export interface BlogPreviewProps {
+  post: any;
+  url: string;
+}
+const { post, url } = Astro.props;
+---
+
+<div class="max-w-[400px]">
+  <Image
+    src={post.image}
+    alt={post.title}
+    width={500}
+    height={300}
+    loading="lazy"
+    class="w-full h-60 md:h-40 lg:h-60 object-cover shadow-md rounded-md"
+  />
+  <p class="text-gray-400 uppercase">{post.category} - {post.date}</p>
+  <h2 class="text-xl font-bold mt-4">{post.title}</h2>
+  <p id="description" class="my-2">{post.desc}</p>
+  <a href={`${url}`} class="text-blue-500 text-xl">Leer más...</a>
+</div>
+
+<style>
+  #description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<!-- definir un maxiomo de 100 caracteres para mostrar en el descripcion del post -->
+<script>
+  const description = document.getElementById("description");
+  description.textContent = description.textContent.slice(0, 100) + "...";
+</script>

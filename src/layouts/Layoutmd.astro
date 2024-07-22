@@ -1,0 +1,99 @@
+---
+import WspButton from "@components/Utilities/WspButton.astro";
+import Footer from "../components/Footer.astro";
+import HeaderNavigator from "../components/HeaderNavigator.astro";
+import Title from "@components/Blog/Title.astro";
+import HeroPost from "@components/Blog/HeroPost.astro";
+const { title } = Astro.props;
+const { frontmatter } = Astro.props;
+---
+
+<html lang="es-ES">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <HeaderNavigator />
+    <HeroPost
+      title={frontmatter.title}
+      title2={frontmatter.title2}
+      image={frontmatter.image}
+    />
+    <div class="pt-12 max-w-screen-xl mx-auto">
+      <Title
+        id="post"
+        title={frontmatter.title}
+        title2={frontmatter.title2}
+        subtitle={frontmatter.category}
+        date={frontmatter.date}
+      />
+      <div class="px-4">
+        <slot />
+      </div>
+    </div>
+    <Footer />
+    <WspButton />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .autoShow {
+    animation: autoShowAnimation;
+    animation-timeline: view(80% auto);
+    -webkit-animation-timeline: view(80% auto);
+  }
+  @keyframes autoShowAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(20%) scale(0.3);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .right-fadeIn {
+    animation: rightFadeIn 1s ease-in-out;
+    animation-timeline: view(70% auto);
+    -webkit-animation-timeline: view(70% auto);
+  }
+
+  @keyframes rightFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .left-fadeIn {
+    animation: leftFadeIn 1s ease-in-out;
+    animation-timeline: view(70% auto);
+    -webkit-animation-timeline: view(70% auto);
+  }
+
+  /* add mozilla webkit  */
+  @keyframes leftFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>

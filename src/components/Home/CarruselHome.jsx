@@ -20,7 +20,7 @@ import slide4 from "../../../public/images/home/carrusel/slide4.jpg";
 import { Image } from "astro:assets";
 import SlideComponent from "./SlideComponent.astro";
 const CarruselHome = () => {
-  console.log(slide1);
+
   return (
     <div>
       <SlideComponent />

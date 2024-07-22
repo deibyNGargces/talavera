@@ -2,6 +2,7 @@
 import ProductView from "@components/Products/ProductView.astro";
 import Layout from "../../../layouts/Layout.astro";
 import imageProduct from "../../../assets/images/home/products/arepa.png";
+export const prerender = false;
 
 const { idProduct, category } = Astro.params;
 
