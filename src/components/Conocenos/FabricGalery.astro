@@ -1,3 +1,15 @@
+---
+import { Image } from "astro:assets";
+import fabrica1 from "@image/about/fabrica/f1.jpg";
+import fabrica2 from "@image/about/fabrica/f2.jpg";
+import fabrica3 from "@image/about/fabrica/f3.jpg";
+import fabrica4 from "@image/about/fabrica/f4.jpg";
+import fabrica5 from "@image/about/fabrica/f5.jpg";
+import fabrica6 from "@image/about/fabrica/f6.jpg";
+import fabrica7 from "@image/about/fabrica/f7.jpg";
+import fabrica8 from "@image/about/fabrica/f8.jpg";
+---
+
 <section class="py-32">
   <div class="w-full text-center mb-20">
     <h2 class="text-3xl lg:text-4xl text-blue-900">Echa un vistazo a</h2>
@@ -5,23 +17,63 @@
       nuestra fábrica
     </h1>
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 w-full overflow-x-hidden">
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">imagen 1</div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      imagen 2
+  <div class="grid grid-cols-2 md:grid-cols-4 w-full overflow-x-hidden gap-1">
+    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
+      <Image
+        src={fabrica1}
+        alt="fabrica1"
+        class="object-cover h-52 w-full object-center"
+      />
     </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">imagen 3</div>
     <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      imagen 4
+      <Image
+        src={fabrica2}
+        alt="fabrica2"
+        class="object-cover h-52 w-full object-center"
+      />
+    </div>
+    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
+      <Image
+        src={fabrica3}
+        alt="fabrica3"
+        class="object-cover h-52 w-full object-center"
+      />
     </div>
     <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      imagen 6
+      <Image
+        src={fabrica4}
+        alt="fabrica4"
+        class="object-cover h-52 w-full object-center"
+      />
     </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">imagen 5</div>
     <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      imagen 8
+      <Image
+        src={fabrica5}
+        alt="fabrica5"
+        class="object-cover h-52 w-full object-center"
+      />
     </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">imagen 7</div>
+    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
+      <Image
+        src={fabrica6}
+        alt="fabrica6"
+        class="object-cover h-52 w-full object-center"
+      />
+    </div>
+    <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
+      <Image
+        src={fabrica7}
+        alt="fabrica7"
+        class="object-cover h-52 w-full object-center"
+      />
+    </div>
+    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
+      <Image
+        src={fabrica8}
+        alt="fabrica8"
+        class="object-cover h-52 w-full object-center"
+      />
+    </div>
   </div>
 </section>
 

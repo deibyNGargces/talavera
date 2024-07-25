@@ -1,8 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
 import Productos from "./Productos.astro";
+import ProductsSection from "./ProductsSection";
 
 const { product } = Astro.props;
+
+const handleProduct = (product) => {
+  // const modal = document.getElementById("showModal");
+  // modal.innerHTML = "";
+  // modal.innerHTML = `<ModalComponent producto=${product} />`;
+  console.log(product);
+};
 ---
 
 <section class="min-h-screen bg-white pt-20 mb-20">
@@ -16,57 +24,61 @@ const { product } = Astro.props;
     <div
       class="flex flex-wrap justify-center lg:gap-8 text-3xl md:text-5xl lg:text-7xl"
     >
-      <button
+      <a
+        href="/products/quesos"
         class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
         ${product === "quesos" ? "text-sky-500" : "text-gray-300"}
         `}
-        disabled={product === "quesos"}
       >
         <Icon name="Queso" />
         <span class="text-lg font-bold">Quesos</span>
-      </button>
+      </a>
       <!-- Carnicos -->
-      <button
+      <a
+        href="/products/carnicos"
         class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
         ${product === "carnicos" ? "text-sky-500" : "text-gray-300"}
         `}
-        disabled={product === "carnicos"}
       >
         <Icon name="Carnico" />
         <span class="text-lg font-bold">Cárnicos</span>
-      </button>
+      </a>
       <!-- Arepas -->
-      <button
+      <a
+        href="/products/arepas"
         class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
             ${product === "arepas" ? "text-sky-500" : "text-gray-300"}
             `}
-        disabled={product === "arepas"}
       >
         <Icon name="Arepa" />
         <span class="text-lg font-bold">Arepas</span>
-      </button>
+      </a>
       <!-- Tarrinas -->
-      <button
+      <a
+        href="/products/tarrinas"
         class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
             ${product === "tarrinas" ? "text-sky-500" : "text-gray-300"}
             `}
-        disabled={product === "tarrinas"}
       >
         <Icon name="Tarrina" />
         <span class="text-lg font-bold">Tarrinas</span>
-      </button>
+      </a>
 
       <!-- Dulces -->
-      <button
+      <a
+        href="/products/dulces"
         class={` flex flex-col items-center justify-center  hover:text-sky-500 transition-all duration-300 ease-in-out py-10 px-5
             ${product === "dulces" ? "text-sky-500" : "text-gray-300"}
             `}
-        disabled={product === "dulces"}
       >
         <Icon name="Dulce" />
         <span class="text-lg font-bold">Dulces</span>
-      </button>
+      </a>
     </div>
   </div>
-  <Productos />
+  <ProductsSection category={product} client:load />
+  <div id="showModal">
+    <!-- <ModalComponent producto={product} /> -->
+  </div>
+  <!-- <Productos category={product} /> -->
 </section>

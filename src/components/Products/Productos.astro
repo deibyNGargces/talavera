@@ -6,43 +6,45 @@ import arepas from "../../assets/images/home/products/arepa.png";
 import tarrinas from "../../assets/images/home/products/tarrina.png";
 import dulces from "../../assets/images/home/products/dulces.png";
 
-// image, name, id, category
-const products = [
+const { category } = Astro.props;
+let loading = true;
+
+const token = import.meta.env.COMMERCE_SK;
+
+const products = await fetch(
+  `https://api.chec.io/v1/products?category_slug=${category}`,
   {
-    image: quesos,
-    name: "Queso",
-    id: "queso",
-    category: "quesos",
-  },
-  {
-    image: dulces,
-    name: "Dulces",
-    id: "dulces",
-    category: "dulces",
-  },
-  {
-    image: carnicos,
-    name: "Carnicos",
-    id: "carnicos",
-    category: "carnicos",
-  },
-  {
-    image: arepas,
-    name: "Arepas",
-    id: "arepas",
-    category: "arepas",
-  },
-  {
-    image: tarrinas,
-    name: "Tarrinas",
-    id: "tarrinas",
-    category: "tarrinas",
-  },
-];
+    headers: {
+      "X-Authorization": token,
+    },
+  }
+).then((res) => {
+  loading = false;
+  return res.json();
+});
+const { data } = products;
 ---
 
 <div
   class="max-w-screen-xl p-2 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
 >
-  {products.map((product) => <ProductCard {...product} />)}
+  <!-- <pre>
+  PRODCUTOS : 
+  {JSON.stringify(data, null, 2)}
+</pre> -->
+  {
+    loading ? (
+      <div class="col-span-full h-full flex items-center justify-center bg-red-400 ">
+        <p class="text-2xl lg:text-4xl text-center">Cargando...</p>
+      </div>
+    ) : data?.length === 0 || !data ? (
+      <div class="col-span-full h-full flex items-center justify-center ">
+        <p class="text-2xl lg:text-4xl text-center">
+          No hay productos dentro de esta categoria
+        </p>
+      </div>
+    ) : (
+      data.map((product: ArrayBuffer) => <ProductCard {...product} />)
+    )
+  }
 </div>

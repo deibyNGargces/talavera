@@ -1,5 +1,12 @@
 ---
 import PostCard from "./PostCard.astro";
+
+let allPost = await Astro.glob("../../pages/posts/**/*.md");
+allPost = allPost.sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+);
 ---
 
 <section class="bg-white flex flex-col items-center gap-8">
@@ -13,31 +20,31 @@ import PostCard from "./PostCard.astro";
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     <div class="w-full h-full flex items-center justify-center left-fadeIn">
       <PostCard
-        title="Lorem ipsum dolor sit amet"
-        topic="Recetas"
+        title={allPost[0].frontmatter.title}
+        topic={allPost[0].frontmatter.category}
         color="#FFC62B"
-        image="https://infoshopcorp.com/wp-content/uploads/2020/11/placeholder.png"
-        linkTo="/"
+        image={allPost[0].frontmatter.image}
+        linkTo={allPost[0].url}
       />
     </div>
     <div
       class="w-full h-full flex items-center justify-center smborder-x-2 autoShow"
     >
       <PostCard
-        title="Lorem ipsum dolor sit amet"
-        topic="Actualidad"
+        title={allPost[1].frontmatter.title}
+        topic={allPost[1].frontmatter.category}
         color="#272967"
-        image="https://infoshopcorp.com/wp-content/uploads/2020/11/placeholder.png"
-        linkTo="/"
+        image={allPost[1].frontmatter.image}
+        linkTo={allPost[1].url}
       />
     </div>
     <div class="w-full h-full flex items-center justify-center right-fadeIn">
       <PostCard
-        title="Lorem ipsum dolor sit amet"
-        topic="Recetas"
+        title={allPost[2].frontmatter.title}
+        topic={allPost[2].frontmatter.category}
         color="#C00018"
-        image="https://infoshopcorp.com/wp-content/uploads/2020/11/placeholder.png"
-        linkTo="/"
+        image={allPost[2].frontmatter.image}
+        linkTo={allPost[2].url}
       />
     </div>
   </div>

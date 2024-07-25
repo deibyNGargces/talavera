@@ -1,20 +1,27 @@
 ---
+import type { GetStaticPaths } from "astro";
 import ProductView from "@components/Products/ProductView.astro";
-import Layout from "../../../layouts/Layout.astro";
-import imageProduct from "../../../assets/images/home/products/arepa.png";
+import Layout from "../../layouts/Layout.astro";
 export const prerender = false;
 
-const { idProduct, category } = Astro.params;
+export async function getStaticPaths() {
+  return [
+    { params: { category: "quesos", idProduct: undefined } },
+    { params: { category: "carnicos", idProduct: undefined } },
+    { params: { category: "arepas", idProduct: undefined } },
+    { params: { category: "tarrinas", idProduct: undefined } },
+    { params: { category: "dulces", idProduct: undefined } },
+  ];
+}
 
-const product = {
-  idProduct,
-  category,
-  name: "Arepa Selecta",
-  description: "Arepa de maíz con queso y mantequilla",
-  price: "2.50",
-  presentacion: "Paquete 5 Und - Caja x 30 Und.",
-  image: imageProduct,
-};
+const { category, idProduct } = Astro.params;
+const token = import.meta.env.COMMERCE_SK;
+
+const product = await fetch(`https://api.chec.io/v1/products/${idProduct}`, {
+  headers: {
+    "X-Authorization": token,
+  },
+}).then((res) => res.json());
 ---
 
 <Layout title="producto selecto">
