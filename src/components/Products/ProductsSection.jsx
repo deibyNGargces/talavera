@@ -1,6 +1,7 @@
 import Modal from "@components/Utilities/Modal";
 import { useEffect, useState } from "react";
 const token = "sk_test_5788943db9c98f5c98fe2271872dac807b41c5f7e640d";
+import vacavideo from "../../assets/images/ordeno.mp4";
 
 const ProductsSection = ({ category }) => {
   const [products, setProducts] = useState([]);
@@ -40,6 +41,8 @@ const ProductsSection = ({ category }) => {
     <div className="max-w-screen-xl p-2 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  ">
       {loading ? (
         <div className="col-span-full h-full flex items-center justify-center  ">
+          <video src={vacavideo} autoPlay loop muted className="w-20 h-20" />
+
           <p className="text-2xl lg:text-4xl text-center">
             Cargando productos...
           </p>
