@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+import bgWave from "../../assets/images/home/carrusel/curve.svg";
+import yeguadaHero from "../../assets/images/yeguada/YeguadaHero.png";
+
+---
+<div class="h-screen w-full flex items-center justify-center relative bg-blue-950" >
+  <Image src={yeguadaHero} alt="Yeguada Selecta" class="w-full h-full object-cover" />
+
+      <!-- onda en la parte inferior  -->
+  <div class="absolute w-full bottom-0">
+    <Image src={bgWave} alt="Wave" class="w-full object-cover -mb-1" />
+  </div>
+</div>

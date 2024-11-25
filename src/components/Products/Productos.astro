@@ -6,23 +6,36 @@ import arepas from "../../assets/images/home/products/arepa.png";
 import tarrinas from "../../assets/images/home/products/tarrina.png";
 import dulces from "../../assets/images/home/products/dulces.png";
 
+import { BACKENDURL } from "@/api/api";
+const APIURL = `${BACKENDURL}`;
 const { category } = Astro.props;
 let loading = true;
 
-const token = import.meta.env.COMMERCE_SK;
 
 const products = await fetch(
-  `https://api.chec.io/v1/products?category_slug=${category}`,
+  `${APIURL}/index.php?action=products_by_category&categoria_id=2`,
   {
     headers: {
-      "X-Authorization": token,
+      "X-Authorization": "token",
     },
   }
 ).then((res) => {
   loading = false;
   return res.json();
 });
-const { data } = products;
+
+// const products = await fetch(
+//   `https://api.chec.io/v1/products?category_slug=${category}`,
+//   {
+//     headers: {
+//       "X-Authorization": token,
+//     },
+//   }
+// ).then((res) => {
+//   loading = false;
+//   return res.json();
+// });
+ const { data } = products;
 ---
 
 <div

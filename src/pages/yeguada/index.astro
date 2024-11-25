@@ -1,10 +1,24 @@
 ---
+import YeguadaHero from "@components/Yeguada/YeguadaHero.astro";
 import Layout from "../../layouts/Layout.astro";
+import AwardsSection from "@components/Yeguada/AwardsSection.astro";
+import YeguadaServices from "@components/Yeguada/YeguadaServices.astro";
+import Gallery from "@components/Yeguada/Gallery.jsx";
+import YeguadaContact from "@components/Yeguada/YeguadaContact.astro";
+import MountainBG from "@components/Utilities/MountainBG.astro";
 ---
 
 <Layout title="Yeguada Selecta">
   <main>
-    <h1 class="text-7xl font-bold">Welcome to Talavera store</h1>
-    <p>Buy the best talavera in the world</p>
+    <YeguadaHero />
+    <AwardsSection />
+    <YeguadaServices />
+    <Gallery client:load/>
+    <div class="bg-stone-900">
+      <YeguadaContact />
+    </div>
+    <div class="relative h-28 md:h-24 lg:h-16 xl:h-8 z-10">
+      <MountainBG />
+    </div>
   </main>
 </Layout>

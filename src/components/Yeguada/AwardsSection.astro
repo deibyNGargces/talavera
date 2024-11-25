@@ -1,0 +1,106 @@
+---
+import { Icon } from "astro-icon/components";
+
+
+---
+
+<div class="flex flex-col items-center w-full py-12 ">
+  <!-- Section Title -->
+  <div class="text-center mb-8">
+    <h2 class="text-xl font-bold uppercase tracking-widest text-gray-800">
+      Quienes
+    </h2>
+    <h1 class="text-4xl 2xl:text-6xl font-extrabold text-gray-900">
+      somos
+    </h1>
+  </div>
+
+  <!-- Description -->
+  <div class="w-full max-w-3xl px-4 text-center mb-12">
+    <p class="text-gray-600 2xl:text-lg">
+      La Yeguada Selecta nació del profundo amor por los caballos y la admiración por su
+      majestuosidad. Cada ejemplar refleja la dedicación y pasión con la que se cuida su linaje,
+      en un entorno donde la elegancia y la fuerza de estos nobles animales se preservan con
+      esmero. Aquí, tradición y respeto por la naturaleza se combinan para crear un legado
+      único.
+    </p>
+  </div>
+
+  <!-- Image Section -->
+  <div class="relative w-full  ">
+    <img
+      src="/src/assets/images/Yeguada/AwardsSection.png"
+      alt="Yeguada"
+      class="w-full h-auto  object-cover"
+    />
+
+    <!-- Awards Section -->
+    <div
+      class="lg:absolute bottom-0 bg-gradient-to-t from-gray-800 to-black  lg:bg-none  right-0 px-6 py-8 text-white text-center flex flex-col items-center">
+        <h2 class="text-2xl font-bold ">HEMOS SIDO GANADORES</h2>
+      <p class="text-lg font-semibold mb-8">en el primer puesto</p>
+
+      <div class="flex flex-wrap justify-center  gap-4 lg:space-x-6 mb-6">
+        <div class="flex flex-col items-center">
+            <Icon name="achieve" class="text-5xl md:text-7xl text-white" />
+            <p class="text-sm">
+                Escalomiño y David de Castro<br/>
+                Ganadores del campeonato de Castilla la Mancha 2023<br/>
+                con montura de 4 años.
+            </p>
+        </div>
+        <div class="flex flex-col items-center">
+            <Icon name="achieve" class="text-5xl md:text-7xl text-white" />
+            
+            <p class="text-sm">
+                David de Castro y Teresa<br/>
+                Ganadores en el nacional Equus Duri<br/>
+                en la prueba de 5 años.
+            </p>
+        </div>
+        <div class="flex flex-col items-center">
+            <Icon name="achieve" class="text-5xl md:text-7xl text-white" />
+            
+            <p class="text-sm">
+                David de Castro y Teresa<br/>
+            Ganadores en la feria Ecuestre Balaguer<br/>
+            en la prueba de 6 años.
+          </p>
+        </div>
+      </div>
+
+      <!-- Other Awards -->
+      <div class="w-full max-w-4xl border border-white  p-6 rounded-lg text-sm">
+          <h3 class="text-xl font-semibold mb-4">Otros premios</h3>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-gray-300">
+
+          <div class="flex flex-col items-center justify-center">
+          <Icon name="AchieveMedall" class="text-5xl md:text-7xl text-white" />
+            <p>
+              Capitán y David de Castro <br/>
+              <span class="font-bold">2° clasificado en el campeonato de Castilla la Mancha 2023</span><br/> en la prueba de 4 años.</p>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+          <Icon name="AchieveMedall" class="text-5xl md:text-7xl text-white" />
+            <p>Lior X y David de Castro
+              <br/>
+              <span class="font-bold">3° clasificado en el campeonato de Castilla la Mancha 2023</span><br/> en la prueba de 4 años.</p>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+          <Icon name="AchieveMedall" class="text-5xl md:text-7xl text-white" />
+            <p>
+              Tommy y Franco Cortés 
+              <br/>
+              <span class="font-bold">5° clasificado en el campeonato de Castilla la Mancha 2023</span><br/> en la prueba de 4 años.</p>
+          </div>
+          <div class="flex flex-col items-center ">
+          <Icon name="AchieveMedall" class="text-5xl md:text-7xl text-white" />
+            <p>Escalomiño y David de Castro
+              <br/> 
+              <span class="font-bold">14° posición en el campeonato de agosto 2023</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
