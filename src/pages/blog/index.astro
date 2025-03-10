@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import BlogPreview from "@components/Blog/BlogPreview.astro";
+import Image from "astro/components/Image.astro";
+import banner from "../../../public/images/bannerblog.png"
 
 // TODO:consulta todos los post y los ordena por fecha
 let allPost = await Astro.glob("../posts/**/*.md");
@@ -26,7 +28,15 @@ allPost = allPost.sort(
           ))
         }
       </div>
-      <div class="bg-gray-200">filtro de categroias</div>
+      <div class="md:col-span-1 ">
+      <div class=" h-screen relative rounded-3xl overflow-hidden">
+        <div class="absolute z-10  px-8 top-0 left-0 w-full h-full flex flex-col  items-center text-center gap-6 pt-16">
+          <p class="text-4xl w-full font-semibold  ">DISFRUTA  DE NUESTROS PRODUCTOS</p>
+          <a href="/products/quesos" class="text-white bg-blue-900 py-2 px-8 rounded-xl  ">Ver productos</a>
+        </div>
+        <Image src={banner} alt="Wave" class="w-full object-cover absolute bottom-0" />
+      </div>
+      </div>
     </div>
   </main>
 </Layout>

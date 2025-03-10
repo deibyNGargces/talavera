@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import MountainBG from "../Utilities/MountainBG.astro";
+import { CONTACT_PHONE } from "../../api/api";
 ---
 
 <section class="relative">
@@ -39,7 +40,8 @@ import MountainBG from "../Utilities/MountainBG.astro";
       >Descargar catalogo</a
     >
     <a
-      href="#"
+      href={`https://wa.me/${CONTACT_PHONE}/?text=Hola%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20como%20ser%20distribuidor%20de%20Talavera%20Selecta`}
+      target="_blank"
       class="bg-[#039DE1] hover:bg-opacity-80 text-white py-2 px-8 rounded-full font-bold mt-1.5 flex max-w-content items-center justify-center gap-2"
     >
       <Icon name="WhatsApp" class="text-white text-3xl" />

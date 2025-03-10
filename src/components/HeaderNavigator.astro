@@ -18,14 +18,15 @@ const routes = [
       { name: "Dulces", href: "/products/dulces" },
     ],
   },
-  // { name: "Yeguada Selecta", href: "/yeguada" },
   { name: "Blog", href: "/blog" },
+  { name: "Yeguada Selecta", href: "/yeguada" },
   { name: "Conviertete en Distribuidor", href: "/distributors" },
   // { name: "Contactanos", href: "/contact" },
 ];
 ---
 
 <Menu routes={routes}>
+  
   <Image src={whiteLogo} alt="Logo" slot="logo" class="h-20" />
   <a
     href="/contact"
@@ -34,4 +35,5 @@ const routes = [
   >
     <span class="bg-white p-2 rounded-xl">Contáctanos</span>
   </a>
+
 </Menu>

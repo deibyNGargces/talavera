@@ -1,9 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+import { CONTACT_PHONE } from "../../api/api";
 ---
 
 <button
   class="group text-white flex gap-1 items-center bg-sky-500 py-2 px-5 rounded-tl-xl rounded-bl-xl fixed bottom-8 right-0 text-4xl z-50"
+  onclick={`window.open('https://wa.me/${CONTACT_PHONE}/?text=Hola%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos%20de%20la%20tienda', '_blank')`}
 >
   <Icon name="WhatsApp" />
   <span class="text-lg leading-none hidden group-hover:block md:block">

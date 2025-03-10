@@ -3,14 +3,32 @@ import { Icon } from "astro-icon/components";
 import Productos from "./Productos.astro";
 import ProductsSection from "./ProductsSection";
 
+import { BACKENDURL } from "@/api/api";
+const APIURL = `${BACKENDURL}`;
 const { product } = Astro.props;
+let loading = true;
+let categories = [];
 
-const handleProduct = (product) => {
-  // const modal = document.getElementById("showModal");
-  // modal.innerHTML = "";
-  // modal.innerHTML = `<ModalComponent producto=${product} />`;
-  console.log(product);
-};
+try {
+   const response = await fetch(`${APIURL}?action=categories`);
+   console.log(response);
+   const data = await response.json();
+   
+   console.log(data);
+    categories = data;
+  } catch (err) {
+   console.error("Error al obtener las categorías");
+  }
+
+// const handleProduct = (product) => {
+//   // const modal = document.getElementById("showModal");
+//   // modal.innerHTML = "";
+//   // modal.innerHTML = `<ModalComponent producto=${product} />`;
+//   console.log(product);
+// };
+
+//consulta todas las categorias
+console.log(categories);
 ---
 
 <section class="min-h-screen bg-white pt-20 mb-20">

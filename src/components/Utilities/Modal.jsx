@@ -2,39 +2,59 @@ import ProductDescription from "@components/Products/ProductDescription";
 import React, { useEffect, useState } from "react";
 import vaca from "@/assets/images/vaca.gif";
 import vacavideo from "../../assets/images/vaca.mp4";
+import { CONTACT_PHONE } from "@/api/api";
 
-const Modal = ({ idProduct, token, onClose }) => {
-  const [product, setProduct] = useState({});
+import { BACKENDURL } from "@/api/api";
+const APIURL = `${BACKENDURL}`;
+
+const Modal = ({ idProduct, token, onClose, product }) => {
+  //const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    getProduct(idProduct);
-  }, [idProduct]);
+  
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getProduct(idProduct);
+  // }, [idProduct]);
+  
 
-  const getProduct = async (id) => {
-    const productData = await fetch(`https://api.chec.io/v1/products/${id}`, {
-      headers: {
-        "X-Authorization": token,
-      },
-    }).then((res) => res.json());
-    setProduct(productData);
-    setLoading(false);
-  };
+  console.log(product)
 
-  const { image, name, id, description } = product;
+  // const getProduct = async (id) => {
+  //   await fetch(`${APIURL}/index.php?action=product&id=${id}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: "Bearer tu_token_aqui",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setProduct(data)})
+  //     .catch((error) => console.log("error", error));
+  //   setLoading(false);
+  // };
+
+  const {
+    imagen_url: image,
+    nombre: name,
+    id,
+    descripcion: description,
+  } = product;
   const handleInformation = () => {
     // Número de WhatsApp del receptor
     //TODO: Cambiar el número de teléfono por el número de WhatsApp al que se enviará el mensaje
-    const phoneNumber = "3112105031";
+
     const message = `*Me gustaria optener mas información*\n\n del producto: ${name}\n}`;
     // URL para enviar el mensaje a WhatsApp
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/${CONTACT_PHONE}?text=${encodeURIComponent(
       message
-    )}?media=${image.url}`;
+    )}?media=${image}`;
 
     // Redireccionar a WhatsApp
     window.open(whatsappUrl, "_blank");
   };
+
+  console.log(product);
 
   return (
     <div className="bg-white max-w-screen-xl w-full rounded-lg shadow-lg p-8 py-12 relative">
@@ -54,19 +74,19 @@ const Modal = ({ idProduct, token, onClose }) => {
             </p>
           </div>
         ) : (
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <img
-              src={image?.url}
+              src={image}
               alt={name}
               height={600}
               width={900}
-              class="w-auto object-contain"
+              className="w-auto object-contain"
               id="product-image"
             />
-            <div class="flex flex-col justify-between gap-6 max-h-max">
+            <div className="flex flex-col justify-between gap-6 max-h-max">
               <div>
                 <h2
-                  class="text-4xl md:text-5xl lg:text-7xl font-bold text-blue-900"
+                  className="text-4xl md:text-5xl lg:text-7xl font-bold text-blue-900"
                   id="product-name"
                 >
                   {name}
@@ -77,7 +97,7 @@ const Modal = ({ idProduct, token, onClose }) => {
               </div>
               <div className="flex flex-col lg:flex-row justify-end gap-4 lg:gap-8 ">
                 <button
-                  class="border cursor-pointer  lg:max-w-max rounded-full px-8 py-2 text-2xl font-bold hover:bg-blue-900 bg-sky-500 text-white transition-all duration-300 ease-in-out"
+                  className="border cursor-pointer  lg:max-w-max rounded-full px-8 py-2 text-2xl font-bold hover:bg-blue-900 bg-sky-500 text-white transition-all duration-300 ease-in-out"
                   onClick={onClose}
                 >
                   Cerrar
@@ -85,7 +105,7 @@ const Modal = ({ idProduct, token, onClose }) => {
 
                 <button
                   onClick={handleInformation}
-                  class="border cursor-pointer gap-2 flex items-center lg:max-w-max rounded-full px-8 py-2 text-2xl font-bold bg-blue-900 hover:bg-sky-500 text-white transition-all duration-300 ease-in-out"
+                  className="border cursor-pointer gap-2 flex items-center lg:max-w-max rounded-full px-8 py-2 text-2xl font-bold bg-blue-900 hover:bg-sky-500 text-white transition-all duration-300 ease-in-out"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
