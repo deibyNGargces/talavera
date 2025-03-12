@@ -12,14 +12,14 @@ import { Icon } from "astro-icon/components";
   <div
     class="grid grid-cols-1 md:grid-cols-3 text-lg w-full max-w-screen-xl pb-12 px-4"
   >
-    <div class="flex flex-col items-start gap-5">
+    <div class="flex flex-col items-start gap-5 ">
       <div class="text-center md:text-left w-full">
         <p class="font-extrabold">Correo</p>
         <a href="mailto:correo@talaveraselecta.com"
           >correo@talaveraselecta.com</a
         >
       </div>
-      <div class="flex flex-col w-full text-center md:text-left">
+      <div class="flex flex-col w-full items-center md:items-start text-center md:text-left">
         <p class="font-extrabold">Teléfono</p>
         <a href="tel:641318605 ">641 31 86 05</a>
         <a href="tel:663798559 ">663 79 85 59</a>
@@ -28,7 +28,7 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
     <!-- LOGO  -->
-    <div class="my-4 flex gap-3 justify-center items-center flex-col">
+    <div class="my-4 flex gap-3 justify-center items-center flex-col ">
       <Image src={logo} alt="Talavera Selecta" class="w-28" />
       <div class="flex gap-4">
         <!-- Instragram -->
@@ -40,7 +40,7 @@ import { Icon } from "astro-icon/components";
         >
           <Icon name="InstagramFill" />
         </a>
-        <!-- Facebook -->
+        <!-- Facebook -->   
 
         <a
           href="https://www.facebook.com/talaveraselecta"
@@ -52,19 +52,19 @@ import { Icon } from "astro-icon/components";
         </a>
       </div>
     </div>
-    <div class="flex flex-col gap-5 text-center md:text-left w-full">
-      <div>
+    <div class="flex flex-col gap-5 text-center md:text-right md:flex-rowd:text-left w-full  ">
+      <div class="text-center md:text-right">
         <p class="font-extrabold">Almacén</p>
         <p class="">Avenida Isaac Newton 7,</p>
         <p class="">Getafe – Madrid CP 28906</p>
       </div>
-      <div>
+      <div class="text-center md:text-right">
         <p class="font-extrabold">Fábrica</p>
         <p class="">Calle Goicoechea 15, Plasencia.</p>
         <p class="">Cáceres CP 10600. Extremadura</p>
         <a
           href="tel:622703872"
-          class="flex gap-2 items-center justify-center md:justify-start"
+          class="flex gap-2 items-center justify-center md:justify-end"
         >
           <Icon name="Phone" class="text-xl" /> 622 70 38 72</a
         >
