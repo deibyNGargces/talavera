@@ -1,6 +1,5 @@
 import ProductDescription from "@components/Products/ProductDescription";
 import React, { useEffect, useState } from "react";
-import vaca from "@/assets/images/vaca.gif";
 import vacavideo from "../../assets/images/vaca.mp4";
 import { CONTACT_PHONE } from "@/api/api";
 
@@ -8,31 +7,7 @@ import { BACKENDURL } from "@/api/api";
 const APIURL = `${BACKENDURL}`;
 
 const Modal = ({ idProduct, token, onClose, product }) => {
-  //const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(false);
-  
-  // useEffect(() => {
-  //   setLoading(true);
-  //   getProduct(idProduct);
-  // }, [idProduct]);
-  
-
-  console.log(product)
-
-  // const getProduct = async (id) => {
-  //   await fetch(`${APIURL}/index.php?action=product&id=${id}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: "Bearer tu_token_aqui",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setProduct(data)})
-  //     .catch((error) => console.log("error", error));
-  //   setLoading(false);
-  // };
 
   const {
     imagen_url: image,
@@ -57,7 +32,7 @@ const Modal = ({ idProduct, token, onClose, product }) => {
   console.log(product);
 
   return (
-    <div className="bg-white max-w-screen-xl w-full rounded-lg shadow-lg p-8 py-12 relative">
+    <div className="bg-white  rounded-lg shadow-lg p-8 py-12 relative">
       <div className="flex justify-end p-2 absolute top-0 right-0">
         <button onClick={onClose} className="text-3xl">
           ⨯
@@ -74,7 +49,7 @@ const Modal = ({ idProduct, token, onClose, product }) => {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-screen-lg mx-auto">
             <img
               src={image}
               alt={name}
@@ -83,7 +58,7 @@ const Modal = ({ idProduct, token, onClose, product }) => {
               className="w-auto object-contain"
               id="product-image"
             />
-            <div className="flex flex-col justify-between gap-6 max-h-max">
+            <div className="flex flex-col  justify-between gap-6 max-h-max">
               <div>
                 <h2
                   className="text-4xl md:text-5xl lg:text-7xl font-bold text-blue-900"
@@ -95,7 +70,7 @@ const Modal = ({ idProduct, token, onClose, product }) => {
                   <ProductDescription description={description} client:load />
                 </div>
               </div>
-              <div className="flex flex-col lg:flex-row justify-end gap-4 lg:gap-8 ">
+              <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-8 ">
                 <button
                   className="border cursor-pointer  lg:max-w-max rounded-full px-8 py-2 text-2xl font-bold hover:bg-blue-900 bg-sky-500 text-white transition-all duration-300 ease-in-out"
                   onClick={onClose}

@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import awardsImage from "../../assets/images/Yeguada/AwardsSection.png";
+import awardsImage from "../../assets/images/Yeguada/AwardsSection.webp";
 
 ---
 
@@ -18,7 +18,7 @@ import awardsImage from "../../assets/images/Yeguada/AwardsSection.png";
 
   <!-- Description -->
   <div class="w-full max-w-3xl px-4 text-center mb-12">
-    <p class="text-gray-600 2xl:text-lg">
+    <p class=" px-2 text-center text-2xl mt-8">
       La Yeguada Selecta nació del profundo amor por los caballos y la admiración por su
       majestuosidad. Cada ejemplar refleja la dedicación y pasión con la que se cuida su linaje,
       en un entorno donde la elegancia y la fuerza de estos nobles animales se preservan con
@@ -28,19 +28,29 @@ import awardsImage from "../../assets/images/Yeguada/AwardsSection.png";
   </div>
 
   <!-- Image Section -->
-  <div class="relative w-full  ">
-    <Image
-        src={awardsImage}
-      alt="awards"
-      class="w-full h-auto  object-cover"
-      />
-    <!-- Awards Section -->
+  <div class="relative w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4 bg-white 2xl:bg-transparent">
     <div
-      class="lg:absolute bottom-0 bg-gradient-to-t from-gray-800 to-black  lg:bg-none  right-0 px-6 py-8 text-white text-center flex flex-col items-center">
-        <h2 class="text-2xl font-bold ">HEMOS SIDO GANADORES</h2>
-      <p class="text-lg font-semibold mb-8">en el primer puesto</p>
+    class="w-full h-auto flex items-end  z-10 col-span-1"
+    >
 
-      <div class="flex flex-wrap justify-center  gap-4 lg:space-x-6 mb-6">
+      <Image
+      src={awardsImage}
+      alt="awards"
+      class="w-full h-auto  object-contain"
+      />
+    </div>
+    <!-- Awards Section -->
+   <div class=" h-full 2xl:h-[80vh] w-full   col-span-2 absolute bottom-0 bg-contain 2xl:bg-cover"
+   style="background-image: url('/src/assets/images/Yeguada/bgAwardsSection.webp');  background-position: center;"
+   ></div> 
+    <div
+      class="col-span-1 justify-end z-10 bg-blue-950 2xl:bg-transparent bottom-0 bg-gradient-to-t from-gray-800 to-black  lg:bg-none  right-0 px-6 py-8 text-white text-center flex flex-col items-center">
+      <div>
+        <h2 class="text-2xl font-bold ">HEMOS SIDO GANADORES</h2>
+        <p class="text-lg font-semibold mb-8">en el primer puesto</p>
+      </div> 
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 justify-center  gap-4 lg:space-x-6 mb-6">
         <div class="flex flex-col items-center">
             <Icon name="achieve" class="text-5xl md:text-7xl text-white" />
             <p class="text-sm">
@@ -70,7 +80,7 @@ import awardsImage from "../../assets/images/Yeguada/AwardsSection.png";
       </div>
 
       <!-- Other Awards -->
-      <div class="w-full max-w-4xl border border-white  p-6 rounded-lg text-sm">
+      <div class="w-full max-w-4xl border border-white   p-6 rounded-lg text-sm">
           <h3 class="text-xl font-semibold mb-4">Otros premios</h3>
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-gray-300">
 

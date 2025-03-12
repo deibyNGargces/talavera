@@ -118,8 +118,8 @@ const ProductsSection = ({ category }) => {
               width={900}
               className="h-auto w-60 object-cover"
             />
-            <div>
-              <p className="text-lg text-center mb-2 font-bold">
+            <div className="flex flex-col items-center justify-center ">
+              <p className="text-lg text-center mb-2 font-bold h-16  line-clamp-2 ">
                 {product.nombre}
               </p>
               <button

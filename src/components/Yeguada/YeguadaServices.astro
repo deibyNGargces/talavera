@@ -5,9 +5,11 @@ import caballosImage from "../../assets/images/Yeguada/Caballos.png";
 import { CONTACT_PHONE } from "../../api/api";  
 ---
 
-<div class="relative flex flex-col items-center w-full py-12">
+<div class="relative flex flex-col items-center w-full py-12"
+
+>
   <!-- Image Section -->
-  <div class="top-0 left-0 w-full h-full">
+  <div class="top-0 left-0 w-full h-full hidden lg:block">
       <Image
       src={caballosImage}
       alt="Caballos"
@@ -15,9 +17,10 @@ import { CONTACT_PHONE } from "../../api/api";
     />
   </div>
 
-  <div class="flex flex-col items-center justify-center w-full lg:w-1/2 lg:left-32 absolute top-0 lg:bottom-0 lg:left-0 ">
+  <div class="flex flex-col items-center justify-center w-full lg:w-1/2  lg:absolute top-0 lg:bottom-0 lg:left-0 ">
+    <div>
     <!-- Services Section Title -->
-    <div class="text-left w-full max-w-5xl px-4 mb-8">
+    <div class="text-center lg:text-left w-full max-w-5xl px-4 mb-8">
       <h2 class="text-xl font-bold uppercase tracking-widest text-gray-800">
         Nuestros
       </h2>
@@ -26,7 +29,7 @@ import { CONTACT_PHONE } from "../../api/api";
 
     <!-- Services Description -->
     <div class="w-full px-4 text-left mb-12 " >
-      <p class="text-gray-900 max-w-screen-sm xl:text-xl">
+      <p class="px-2 text-center lg:text-left text-2xl mt-8text-gray-900 max-w-screen-sm xl:text-xl">
         Nos comprometemos a brindar el mejor cuidado a cada caballo, asegurando
         su bienestar y desarrollo. Nuestro equipo utiliza métodos innovadores y
         respetuosos para promover la salud y el rendimiento óptimo.
@@ -34,7 +37,7 @@ import { CONTACT_PHONE } from "../../api/api";
     </div>
 
     <!-- Image and Services List -->
-    <div class="flex flex-col md:flex-row items-center w-full max-w-5xl">
+    <div class="flex flex-col md:flex-row items-center w-full max-w-5xl px-4">
       <!-- Services List -->
       <div class="md:w-1/2 w-full md:pl-4">
         <ul class="space-y-4 text-gray-800">
@@ -64,6 +67,7 @@ import { CONTACT_PHONE } from "../../api/api";
       <Icon name="WhatsApp" class="w-6 h-6" />
         Más información
       </a>
+    </div>
     </div>
   </div>
 </div>

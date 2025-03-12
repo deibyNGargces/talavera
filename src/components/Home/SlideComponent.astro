@@ -1,62 +1,86 @@
 ---
-import slide1 from "../../assets/images/home/carrusel/slide1.jpg";
-import slideMin1 from "../../assets/images/home/carrusel/minslide1.png";
 import { Image } from "astro:assets";
-import bgWave from "../../assets/images/home/carrusel/curve.png";
 import { Icon } from "astro-icon/components";
+import bgWave from "../../assets/images/home/carrusel/curve.png";
+
+// Definir las imágenes y datos del carrusel de forma estática
+const slides = [
+  {
+    url: "/images/home/carrusel/slide1.webp",
+    urlMin: "/images/home/carrusel/minslide1.webp",
+    nombre: "Arepas",
+    descripcion: "Arepas de maíz pelado rellenas de carne mechada, pollo, pernil, queso, chicharrón, entre otros.",
+  },
+  {
+    url: "/images/home/carrusel/slide2.webp",
+    urlMin: "/images/home/carrusel/minslide2.webp",
+    nombre: "Quesos",
+    descripcion: "Quesos frescos, semiduros, duros, madurados, ahumados, entre otros.",
+  },
+  {
+    url: "/images/home/carrusel/slide3.webp",
+    urlMin: "/images/home/carrusel/minslide3.webp",
+    nombre: "Carnicos",
+    descripcion: "Carnes de res, cerdo, pollo, pescado, embutidos, entre otros.",
+  },
+  {
+    url: "/images/home/carrusel/slide4.webp",
+    urlMin: "/images/home/carrusel/minslide4.webp",
+    nombre: "Dulces",
+    descripcion: "Dulces típicos, tortas, galletas, panes, entre otros.",
+  },
+];
 ---
 
 <div class="h-screen w-full relative">
-  <div class="w-full h-screen carrusel">
-    <div
-      class="atras absolute z-50 flex items-center left-5 md:left-20 h-screen"
-    >
+  <div class="w-full h-screen carousel">
+    <!-- Botones de navegación -->
+    <div class="navigation-buttons absolute z-50 w-full h-full flex justify-between items-center px-5 md:px-20">
       <button
-        id="atras"
-        class="flex items-center justify-center bg-white rounded-full h-10 w-10 shadow-md"
+        aria-label="Anterior imagen"
+        class="carousel-button prev-button flex items-center justify-center bg-white/80 hover:bg-white rounded-full h-10 w-10 shadow-md transition-colors"
       >
-        <span class="font-bold transform scale-125">
-          <Icon name="LeftArrow" />
-        </span>
+        <Icon name="LeftArrow" class="w-6 h-6" />
       </button>
-    </div>
-    <div class="imagenes">
-      <div id="img" class="w-full h-full">
-        <Image
-          src={slide1}
-          alt="Talavera store"
-          class="img hidden lg:block"
-          loading="lazy"
-        />
-        <Image
-          src={slideMin1}
-          alt="Talavera store"
-          class="img lg:hidden"
-          loading="lazy"
-        />
-      </div>
+      
+      <button
+        aria-label="Siguiente imagen"
+        class="carousel-button next-button flex items-center justify-center bg-white/80 hover:bg-white rounded-full h-10 w-10 shadow-md transition-colors"
+      >
+        <Icon name="RightArrow" class="w-6 h-6" />
+      </button>
     </div>
 
-    <div
-      class="adelante absolute top-0 right-5 md:right-20 z-50 flex items-center h-screen"
-      id="adelante"
-    >
-      <button
-        id="adelante"
-        class="flex items-center justify-center bg-white rounded-full h-10 w-10 shadow-md"
-      >
-        <span class="font-bold transform scale-125">
-          <Icon name="RightArrow" />
-        </span>
-      </button>
+    <!-- Contenedor de imágenes -->
+    <div class="carousel-container relative w-full h-full">
+      {slides.map((slide, index) => (
+        <div class={`carousel-slide absolute w-full h-full transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`} data-index={index}>
+          <Image
+            src={slide.url}
+            alt={slide.nombre}
+            width={1920}
+            height={1080}
+            class="w-full h-full object-cover hidden lg:block"
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+          <Image
+            src={slide.urlMin}
+            alt={slide.nombre}
+            width={768}
+            height={1024}
+            class="w-full h-full object-cover lg:hidden"
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
     </div>
   </div>
 
-  <!-- onda en la parte inferior  -->
   <div class="absolute w-full bottom-0">
     <Image src={bgWave} alt="Wave" class="w-full object-cover -mb-1" />
   </div>
 </div>
+
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
   .carousel {
@@ -67,96 +91,107 @@ import { Icon } from "astro-icon/components";
     justify-content: center;
     align-items: center;
   }
-  .imagenes {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  .carousel-slide {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
   }
-  .img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 </style>
+
 <script>
-  let image1 = "/images/home/carrusel/slide1.jpg";
-  let image2 = "/images/home/carrusel/slide2.jpg";
-  let image3 = "/images/home/carrusel/slide3.jpg";
-  let image4 = "/images/home/carrusel/slide4.jpg";
-  let minslide1 = "/images/home/carrusel/minslide1.png";
-  let minslide2 = "/images/home/carrusel/minslide2.png";
-  let minslide3 = "/images/home/carrusel/minslide3.png";
-  let minslide4 = "/images/home/carrusel/minslide4.png";
+  class Carousel {
+    private currentIndex: number;
+    private slides: NodeListOf<Element>;
+    private prevButton: HTMLButtonElement | null;
+    private nextButton: HTMLButtonElement | null;
+    private autoPlayInterval: number;
+    private autoPlayTimer: number | null;
 
-  let imagenes = [
-    {
-      url: image1,
-      urlMin: minslide1,
-      nombre: "Arepas",
-      descripcion:
-        "Arepas de maíz pelado rellenas de carne mechada, pollo, pernil, queso, chicharrón, entre otros.",
-    },
-    {
-      url: image2,
-      urlMin: minslide2,
-      nombre: "Quesos",
-      descripcion:
-        "Quesos frescos, semiduros, duros, madurados, ahumados, entre otros.",
-    },
-    {
-      url: image3,
-      urlMin: minslide3,
-      nombre: "Carnicos",
-      descripcion:
-        "Carnes de res, cerdo, pollo, pescado, embutidos, entre otros.",
-    },
-    {
-      url: image4,
-      urlMin: minslide4,
-      nombre: "Dulces",
-      descripcion: "Dulces típicos, tortas, galletas, panes, entre otros.",
-    },
-  ];
+    constructor() {
+      this.currentIndex = 0;
+      this.slides = document.querySelectorAll('.carousel-slide');
+      this.prevButton = document.querySelector('.prev-button');
+      this.nextButton = document.querySelector('.next-button');
+      this.autoPlayInterval = 4000;
+      this.autoPlayTimer = null;
 
-  let atras = document.getElementById("atras");
-  let adelante = document.getElementById("adelante");
-  let imagen = document.getElementById("img");
-  let actual = 0;
-
-  atras.addEventListener("click", () => {
-    actual--;
-    if (actual < 0) {
-      actual = imagenes.length - 1;
-    }
-    imagen.innerHTML = `
-     <Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover hidden lg:block" loading="lazy" />
-      <Image src="${imagenes[actual].urlMin}" alt="Talavera store" class="img h-full w-full object-cover lg:hidden " loading="lazy" />
-    `;
-  });
-
-  adelante.addEventListener("click", () => {
-    actual++;
-    if (actual > imagenes.length - 1) {
-      actual = 0;
+      this.init();
     }
 
-    if (actual > imagenes.length - 1) {
-      actual = 0;
-    }
-    imagen.innerHTML = `
-      <Image src="${imagenes[actual].url}" alt="Talavera store" class="img h-full w-full object-cover hidden lg:block" loading="lazy" />
-      <Image src="${imagenes[actual].urlMin}" alt="Talavera store" class="img h-full w-full object-cover lg:hidden " loading="lazy" />
-    `;
-    //animar la entrada de la imagen
-    imagen.style.animation = "fadeIn 1s";
-    imagen.style.animationTimingFunction = "ease-in-out";
-    imagen.style.animationFillMode = "forwards";
-  });
+    private init(): void {
+      // Mostrar la primera imagen inmediatamente
+      this.showSlide(0);
+      
+      this.preloadImages();
+      
+      this.prevButton?.addEventListener('click', () => this.prevSlide());
+      this.nextButton?.addEventListener('click', () => this.nextSlide());
+      
+      this.startAutoPlay();
 
-  setInterval(() => {
-    adelante.click();
-  }, 4000);
+      const carousel = document.querySelector('.carousel');
+      carousel?.addEventListener('mouseenter', () => this.stopAutoPlay());
+      carousel?.addEventListener('mouseleave', () => this.startAutoPlay());
+    }
+
+    private preloadImages(): void {
+      const images = Array.from(document.querySelectorAll<HTMLImageElement>('.carousel-slide img'));
+      images.forEach(img => {
+        const image = new Image();
+        image.src = img.src;
+      });
+    }
+
+    private showSlide(index: number): void {
+      this.slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add('active');
+          slide.classList.remove('opacity-0');
+          slide.classList.add('opacity-100');
+        } else {
+          slide.classList.remove('active');
+          slide.classList.add('opacity-0');
+          slide.classList.remove('opacity-100');
+        }
+      });
+    }
+
+    private nextSlide(): void {
+      this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+      this.showSlide(this.currentIndex);
+    }
+
+    private prevSlide(): void {
+      this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+      this.showSlide(this.currentIndex);
+    }
+
+    private startAutoPlay(): void {
+      if (this.autoPlayTimer === null) {
+        this.autoPlayTimer = window.setInterval(() => this.nextSlide(), this.autoPlayInterval);
+      }
+    }
+
+    private stopAutoPlay(): void {
+      if (this.autoPlayTimer !== null) {
+        window.clearInterval(this.autoPlayTimer);
+        this.autoPlayTimer = null;
+      }
+    }
+  }
+
+  // Asegurarnos de que el carrusel se inicialice tan pronto como sea posible
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new Carousel());
+  } else {
+    new Carousel();
+  }
 </script>
