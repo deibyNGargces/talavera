@@ -10,78 +10,70 @@ import fabrica7 from "@image/about/fabrica/f7.jpg";
 import fabrica8 from "@image/about/fabrica/f8.jpg";
 ---
 
-<section class="py-32">
-  <div class="w-full text-center mb-20">
-    <h2 class="text-3xl lg:text-4xl text-blue-900">Echa un vistazo a</h2>
-    <h1 class="text-4xl lg:text-6xl font font-extrabold text-blue-900">
-      nuestra fábrica
-    </h1>
-  </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 w-full overflow-x-hidden gap-1">
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
-      <Image
-        src={fabrica1}
-        alt="fabrica1"
-        class="object-cover h-52 w-full object-center"
-      />
+<section class=" pb-16 lg:py-32">
+  <div class="container mx-auto px-4">
+    <div class="w-full text-center mb-20">
+      <h2 class="text-3xl lg:text-4xl text-blue-900">Echa un vistazo a</h2>
+      <h1 class="text-4xl lg:text-6xl font font-extrabold text-blue-900">
+        nuestra fábrica
+      </h1>
     </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      <Image
-        src={fabrica2}
-        alt="fabrica2"
-        class="object-cover h-52 w-full object-center"
-      />
-    </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
-      <Image
-        src={fabrica3}
-        alt="fabrica3"
-        class="object-cover h-52 w-full object-center"
-      />
-    </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      <Image
-        src={fabrica4}
-        alt="fabrica4"
-        class="object-cover h-52 w-full object-center"
-      />
-    </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      <Image
-        src={fabrica5}
-        alt="fabrica5"
-        class="object-cover h-52 w-full object-center"
-      />
-    </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
-      <Image
-        src={fabrica6}
-        alt="fabrica6"
-        class="object-cover h-52 w-full object-center"
-      />
-    </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-gray-500">
-      <Image
-        src={fabrica7}
-        alt="fabrica7"
-        class="object-cover h-52 w-full object-center"
-      />
-    </div>
-    <div class="cursor-zoom-in zoomSection h-52 w-full bg-black">
-      <Image
-        src={fabrica8}
-        alt="fabrica8"
-        class="object-cover h-52 w-full object-center"
-      />
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div class="aspect-[4/3] row-span-1 overflow-hidden rounded-xl shadow-sm">
+        <Image
+          src={fabrica1}
+          alt="fabrica1"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="aspect-[3/4] md:row-span-2 overflow-hidden rounded-xl shadow-sm">
+        <Image
+          src={fabrica2}
+          alt="fabrica2"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="aspect-[4/3] row-span-1 overflow-hidden rounded-xl shadow-sm">
+        <Image
+          src={fabrica3}
+          alt="fabrica3"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="aspect-[4/3] row-span-1 overflow-hidden rounded-xl shadow-sm">
+        <Image
+          src={fabrica4}
+          alt="fabrica4"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="aspect-[3/4] md:row-span-2 overflow-hidden rounded-xl shadow-sm">
+        <Image
+          src={fabrica5}
+          alt="fabrica5"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="aspect-[4/3] row-span-1 overflow-hidden rounded-xl shadow-sm">
+        <Image
+          src={fabrica8}
+          alt="fabrica8"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="aspect-[4/3] row-span-1 overflow-hidden rounded-xl shadow-sm">
+        <Image
+          src={fabrica6}
+          alt="fabrica6"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  .zoomSection {
-    transition: transform 0.5s;
-  }
-  .zoomSection:hover {
-    transform: scale(1.5);
-  }
+  /* Eliminamos los estilos anteriores ya que ahora usamos clases de Tailwind */
 </style>

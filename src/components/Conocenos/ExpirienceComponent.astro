@@ -1,8 +1,8 @@
 ---
-import arepa from "../../assets/images/home/products/arepa.png";
-import quesos from "../../assets/images/home/products/queso.png";
-import dulces from "../../assets/images/home/products/dulces.png";
-import carnes from "../../assets/images/home/products/carnes.png";
+import arepa from "../../assets/images/home/products/arepa.webp";
+import quesos from "../../assets/images/home/products/queso.webp";
+import dulces from "../../assets/images/home/products/dulces.webp";
+import carnes from "../../assets/images/home/products/carnes.webp";
 import { Image } from "astro:assets";
 import MountainBGWhite from "../Utilities/MountainBGWhite.astro";
 import Marcas from "../Utilities/Marcas.astro";
@@ -11,46 +11,46 @@ import Marcas from "../Utilities/Marcas.astro";
 <section
   class="min-h-screen bg-[#F0F0F0] flex flex-col items-center justify-center relative overflow-hidden"
 >
-  <h2 class="text-4xl lg:text-6xl text-blue-900 font-bold">Experiencia</h2>
-  <h1 class="text-4xl lg:text-6xl text-blue-900 font-extrabold">
+  <h2 class="text-4xl lg:text-6xl text-blue-900 font-bold z-10">Experiencia</h2>
+  <h1 class="text-4xl lg:text-6xl text-blue-900 font-extrabold z-10">
     Talavera Selecta
   </h1>
-  <p class="max-w-screen-sm mx-auto text-center text-2xl my-8">
+  <p class="max-w-screen-sm mx-auto px-2 text-center text-2xl my-8">
     Sumérgete en nuestra variedad de productos cuidadosamente seleccionados,
     desde quesos cremosos hasta dulces exquisitos. Cada producto refleja nuestro
     compromiso con la calidad y la satisfacción del cliente.
   </p>
   <a
     href="/products/quesos"
-    class="rounded-full text-white bg-blue-900 text-xl font-bold py-1.5 px-3"
+    class="rounded-full text-white bg-blue-900 text-xl font-bold py-1.5 px-3 z-20 md:z-10"
     >Conoce nuestros productos</a
   >
   <!-- left image  -->
-  <div class="absolute top-0 right-0 lg:h-1/2 transform rotate-12">
+  <div class="absolute top-0 right-0 h-48 lg:h-1/2 transform rotate-12">
     <Image src={quesos} alt="Arepa" class="h-full w-full object-cover" />
   </div>
 
   <div
-    class="z-10 absolute bottom-0 right-0 overflow-hidden lg:h-1/2 transform -rotate-12"
+    class="z-10 absolute bottom-0 right-0 overflow-hidden h-56 lg:h-1/2 transform -rotate-12"
   >
     <Image src={arepa} alt="Quesos" class="h-full w-full object-cover" />
   </div>
 
   <!-- Right image -->
-  <div class="absolute top-8 -left-10 lg:-left-32 lg:h-2/3 transform rotate-45">
+  <div class="absolute top-8 -left-10 lg:-left-32 h-56 -z-0  lg:h-2/3 transform rotate-12">
     <Image src={carnes} alt="Carnes" class="h-full w-full object-cover" />
   </div>
 
   <div
-    class="absolute z-10 bottom-0 left-0 lg:left-32 overflow-hidden lg:h-1/4 transform -rotate-12"
+    class="absolute  z-10 bottom-0 left-0 lg:left-32 overflow-hidden h-36 lg:h-1/4 transform -rotate-12"
   >
-    <Image src={dulces} alt="Dulces " class="h-full w-full object-cover" />
+    <Image src={dulces} alt="Dulces " class="h-full w-full object-cover scale-125" />
   </div>
   <div class="w-full">
     <MountainBGWhite />
   </div>
 </section>
-<section class="py-24 max-w-screen-xl mx-auto autoShow overflow-x-hidden">
+<section class="py-24 max-w-screen-xl mx-auto  overflow-x-hidden">
   <div class="text-center mb-8">
     <h2 class="font-extrabold text-4xl lg:text-6xl">En Talavera Selecta</h2>
     <p class="text-xl lg:text-3xl">tenemos mucho más para ti</p>
